@@ -1,6 +1,5 @@
 #[allow(dead_code)]
 pub mod coords;
-pub mod lines;
 
 #[test]
 #[cfg(test)]
