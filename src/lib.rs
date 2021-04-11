@@ -1,11 +1,11 @@
 #[allow(dead_code)]
-mod coord;
+pub mod coord;
+pub use coord::Coord;
 
 
 #[test]
 #[cfg(test)]
 fn test_coords () {
-    use coord::Coord;
 
     let a: Coord = coord::new(1, 2);
     let (x , y) = (3, 3);
