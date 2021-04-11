@@ -18,6 +18,9 @@ fn test_coords () {
     // to vec
     let g: Vec<i32> = coords::Coord::to_vec(a);
     
+    // to tuple
+    let i: (i32, i32) = coords::Coord::to_tuple(a);
+    
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
     println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
     println!("\nlet c: coord::Coord = a + b; | {:?}", c);
@@ -25,6 +28,7 @@ fn test_coords () {
     println!("\nlet e: coord::Coord = a * d; | {:?}", e);
     println!("\nlet f: coord::Coord = a / a; | {:?}", f);
     println!("\nlet g: Vec<i32> = coord::Coord::to_vec(a); | {:?}", g);
+    println!("\nlet i: (i32, i32) = coords::Coord::to_tuple(a); | {:?}", i);
 
 
 }

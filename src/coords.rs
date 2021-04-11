@@ -59,4 +59,9 @@ impl Coord {
     pub fn to_vec(coord :Coord) -> Vec<i32> {
         return vec![coord.x, coord.y];
     }
+    
+    pub fn to_tuple(coord :Coord) -> (i32, i32) {
+        return (coord.x, coord.y);
+        
+    }
 }
