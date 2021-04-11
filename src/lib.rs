@@ -19,7 +19,7 @@ fn test_coords () {
     let g: Vec<i32> = coords::Coord::to_vec(a);
     
     // to tuple
-    let i: (i32, i32) = coords::Coord::to_tuple(a);
+    let i: (i32, i32) = coords::Coord::to_tuple(c);
     
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
     println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
