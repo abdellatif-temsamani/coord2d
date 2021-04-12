@@ -1,7 +1,8 @@
-#modules coord2d
+# modules coord2d
+
 rust lib for coordinate in 2d system
 
-## example
+## example 1
 
 ```rust
 use coord2d::*;
@@ -12,19 +13,28 @@ fn main() {
     let sum: coords::Coord = coord1 + coord2;
 
     println!("{:?}", sum);
+}
+```
+## example 2 
 
-    let line : vectors::Vector = vectors::new(coord1, coord2);
+```rust
+use coord2d::*;
 
-    println!("{:?}", line);
-    let h = vectors::new(a, b);
+fn main() {
+    let coord1: coords::Coord = coords::new(3, 4);
+    let coord2: coords::Coord = coords::new(5, 13);
+
+    let h = vectors::new(coord1, coord2);
+    let l = vectors::new(coord1, coord2);
+
     let m = h + l;
-    let s = h + l;
-    println!("\nlet h = points::new(a, b); | {:?}", h);
-    println!("\nlet m = h + l; | {:?}", m);
-    println!("\nlet s = h + l; | {:?}", s);
+    let s = h - l;
+
+    println!("{:?}", h);
+    println!("{:?}", m);
+    println!("{:?}", s);
     
 }
-
 ```
 
 # TO DO
