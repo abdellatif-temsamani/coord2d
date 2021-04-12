@@ -8,8 +8,8 @@ rust lib for coordinate in 2d system
 use coord2d::*;
 
 fn main() {
-    let coord1: coords::Coord = coords::new(3, 4);
-    let coord2: coords::Coord = coords::new(5, 13);
+    let coord1: coords::Coord = coords::new(3.0, 4.0);
+    let coord2: coords::Coord = coords::new(5.0, 13.0);
     let sum: coords::Coord = coord1 + coord2;
 
     println!("{:?}", sum);
@@ -21,14 +21,14 @@ fn main() {
 use coord2d::*;
 
 fn main() {
-    let coord1: coords::Coord = coords::new(3, 4);
-    let coord2: coords::Coord = coords::new(5, 13);
+    let coord1: coords::Coord = coords::new(3.0, 4.0);
+    let coord2: coords::Coord = coords::new(5.0, 13.0);
 
-    let h = vectors::new(coord1, coord2);
-    let l = vectors::new(coord1, coord2);
+    let h: vectors::Vector = vectors::new(coord1, coord2);
+    let l: vectors::Vector = vectors::new(coord1, coord2);
 
-    let m = h + l;
-    let s = h - l;
+    let m: vectors::Vector = h + l;
+    let s: vectors::Vector = h - l;
 
     println!("{:?}", h);
     println!("{:?}", m);
