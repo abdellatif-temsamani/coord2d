@@ -1,14 +1,15 @@
 #[allow(dead_code)]
 pub mod coords;
-pub mod lines;
+pub mod vectors;
 
 
 #[test]
 #[cfg(test)]
 fn test_coords () {
 
-    let a: coords::Coord = coords::new(1, 2);
-    let (x , y) = (3, 3);
+    let a: coords::Coord = coords::new(1.0, 2.0);
+    let x: f64 = 3.0;
+    let y: f64 = 3.0;
     let b: coords::Coord = coords::new(x, y);
     
     // math
@@ -18,10 +19,10 @@ fn test_coords () {
     let f: coords::Coord = a / a;
     
     // to vec
-    let g: Vec<i32> = coords::Coord::to_vec(a);
+    let g: Vec<f64> = coords::Coord::to_vec(a);
     
     // to tuple
-    let i: (i32, i32) = coords::Coord::to_tuple(c);
+    let i: (f64, f64) = coords::Coord::to_tuple(c);
 
     // split
     let (r, o) = coords::Coord::split(a);
@@ -32,22 +33,24 @@ fn test_coords () {
     println!("\nlet d: coord::Coord = a - c; | {:?}", d);
     println!("\nlet e: coord::Coord = a * d; | {:?}", e);
     println!("\nlet f: coord::Coord = a / a; | {:?}", f);
-    println!("\nlet g: Vec<i32> = coord::Coord::to_vec(a); | {:?}", g);
-    println!("\nlet i: (i32, i32) = coords::Coord::to_tuple(a); | {:?}", i);
+    println!("\nlet g: Vec<f64> = coord::Coord::to_vec(a); | {:?}", g);
+    println!("\nlet i: (f64, f64) = coords::Coord::to_tuple(a); | {:?}", i);
     println!("\nlet (r, o) = coords::Coord::split(a); | r={}, o={}" ,r,o);
 }
 #[test]
 #[cfg(test)]
 fn test_points () {
 
-    let a: coords::Coord = coords::new(1, 2);
-    let (x , y) = (3, 3);
+    let a: coords::Coord = coords::new(1.0, 2.0);
+    let x: f64 = 3.0;
+    let y: f64 = 3.0;
     let b: coords::Coord = coords::new(x, y);
+    
     let d: coords::Coord = a - b;
     let e: coords::Coord = a * d;
 
-    let h = lines::new(a, b);
-    let l = lines::new(a, e);
+    let h = vectors::new(a, b);
+    let l = vectors::new(a, e);
 
     let m = h + l;
     let s = h + l;

@@ -3,10 +3,10 @@ use std::ops;
 
 #[derive(Clone, Copy , Debug)]
 pub struct Coord{
-    pub x: i32,
-    pub y: i32,
+    pub x: f64,
+    pub y: f64,
 }
-pub fn new(x: i32, y: i32) -> Coord {
+pub fn new(x: f64, y: f64) -> Coord {
     return Coord{x, y};
 }
 
@@ -56,16 +56,16 @@ impl ops::Div<Coord> for Coord{
 }
 
 impl Coord {
-    pub fn to_vec(coord :Coord) -> Vec<i32> {
+    pub fn to_vec(coord :Coord) -> Vec<f64> {
         return vec![coord.x, coord.y];
     }
     
-    pub fn to_tuple(coord :Coord) -> (i32, i32) {
+    pub fn to_tuple(coord :Coord) -> (f64, f64) {
         return (coord.x, coord.y);
         
     }
 
-    pub fn split(coord: Coord) -> (i32, i32) {
+    pub fn split(coord: Coord) -> (f64, f64) {
         return self::Coord::to_tuple(coord);
     }
 }
