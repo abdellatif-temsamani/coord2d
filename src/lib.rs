@@ -60,9 +60,7 @@ mod test {
         let w = m + h;
         let t = h + s;
 
-        let mag = vectors::Vector::get_magnitude(t);
-
-        
+        let mag = vectors::Vector::get_magnitude(t);        
         
         println!("\nlet h = points::new(a, b); | {:?}", h);
         println!("\nlet m = h + l; | {:?}", m);

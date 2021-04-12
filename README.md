@@ -16,6 +16,13 @@ fn main() {
     let line : vectors::Vector = vectors::new(coord1, coord2);
 
     println!("{:?}", line);
+    let h = vectors::new(a, b);
+    let m = h + l;
+    let s = h + l;
+    println!("\nlet h = points::new(a, b); | {:?}", h);
+    println!("\nlet m = h + l; | {:?}", m);
+    println!("\nlet s = h + l; | {:?}", s);
+    
 }
 
 ```
