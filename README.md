@@ -1,7 +1,8 @@
-# coord2d
+#modules coord2d
 rust lib for coordinate in 2d system
 
 ## example
+
 ```rust
 use coord2d::*;
 
@@ -18,14 +19,15 @@ fn main() {
 }
 
 ```
-# TO DO
-- [X] basic math
-- [ ] add fn give lenghts, modules of vector
-- [ ] add vectors properties
 
+# TO DO
+
+- [x] basic math
+- [X] add fn give magnitude of vector
+- [ ] add properties
 
 ## stats
+
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev&show_icons=true&theme=radical)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=abdellatif-dev&layout=compact&show_icons=true&theme=radical)](https://github.com/abdellatif-dev/github-readme-stats)
-

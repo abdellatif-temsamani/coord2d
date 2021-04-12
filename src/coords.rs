@@ -68,4 +68,5 @@ impl Coord {
     pub fn split(coord: Coord) -> (f64, f64) {
         return self::Coord::to_tuple(coord);
     }
+
 }
