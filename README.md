@@ -2,38 +2,72 @@
 
 rust lib for coordinate in 2d system
 
-## example 1
+## example Coord
 
 ```rust
 use coord2d::*;
-
-fn main() {
-    let coord1: coords::Coord = coords::new(3.0, 4.0);
-    let coord2: coords::Coord = coords::new(5.0, 13.0);
-    let sum: coords::Coord = coord1 + coord2;
-
-    println!("{:?}", sum);
+fn main () {
+    let a: coords::Coord = coords::new(1.0, 2.0);
+    let x: f64 = 3.0;
+    let y: f64 = 3.0;
+    let b: coords::Coord = coords::new(x, y);
+    
+    // math
+    let c: coords::Coord = a + b;
+    let d: coords::Coord = a - c;
+    let e: coords::Coord = a * d;
+    let f: coords::Coord = a / a;
+    
+    // to vec
+    let g: Vec<f64> = a.to_vec();
+    
+    // to tuple
+    let i: (f64, f64) = c.to_tuple();
+    // split
+    let (r, o) = e.split();
+    
+    println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
+    println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
+    println!("\nlet c: coord::Coord = a + b; | {:?}", c);
+    println!("\nlet d: coord::Coord = a - c; | {:?}", d);
+    println!("\nlet e: coord::Coord = a * d; | {:?}", e);
+    println!("\nlet f: coord::Coord = a / a; | {:?}", f);
+    println!("\n let g: Vec<f64> = a.to_vec(); {:?}", g);
+    println!("\n let i: (f64, f64) = c.to_tuple(); | {:?}", i);
+    println!("\n let (r, o) = e.split(); r={}, o={}" ,r,o);
 }
 ```
-## example 2 
+## example Vectors
 
 ```rust
 use coord2d::*;
 
-fn main() {
-    let coord1: coords::Coord = coords::new(3.0, 4.0);
-    let coord2: coords::Coord = coords::new(5.0, 13.0);
-
-    let h: vectors::Vector = vectors::new(coord1, coord2);
-    let l: vectors::Vector = vectors::new(coord1, coord2);
-
-    let m: vectors::Vector = h + l;
-    let s: vectors::Vector = h - l;
-
-    println!("{:?}", h);
-    println!("{:?}", m);
-    println!("{:?}", s);
+fn main () {
+    let a: coords::Coord = coords::new(1.0, 2.0);
+    let x: f64 = 3.0;
+    let y: f64 = 3.0;
+    let b: coords::Coord = coords::new(x, y);
     
+    let d: coords::Coord = a - b;
+    let e: coords::Coord = a * d;
+    let h = vectors::new(a, b);
+    let l = vectors::new(a, e);
+    let m = h + l;
+    let s = h + l;
+    let w = m + h;
+    let t = h + s;
+    let vec = s.to_vec();
+    let tup = s.to_tuple();
+    let mag = t.get_magnitude();
+    
+    println!("\nlet h = points::new(a, b); | {:?}", h);
+    println!("\nlet m = h + l; | {:?}", m);
+    println!("\nlet s = h + l; | {:?}", s);
+    println!("\nlet w = m + h; | {:?}", w);
+    println!("\nlet t = h + s; | {:?}", t);
+    println!("\nlet mag = t.get_magnitude(); | {}", mag);
+    println!("\nlet vec = s.to_vec(); | {:?}" , vec);
+    println!("let tup = s.to_tuple(); | {:?}" , tup);
 }
 ```
 

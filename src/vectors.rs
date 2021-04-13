@@ -77,21 +77,22 @@ impl ops::Div<Vector> for Vector{
 }
 
 impl Vector {
-    pub fn to_vec(vector : Vector) -> Vec<coords::Coord> {
-        return vec![vector.start, vector.end];
+    pub fn to_vec(self : Vector) -> Vec<coords::Coord> {
+        return vec![self.start, self.end];
     }
     
-    pub fn to_tuple(vector : Vector) -> (coords::Coord, coords::Coord, f64) {
-        return (vector.start, vector.end, vector.magnitude);
+    pub fn to_tuple(self : Vector) -> (coords::Coord, coords::Coord, f64) {
+        return (self.start, self.end, self.magnitude);
         
     }
 
-    pub fn split(vector: Vector) -> (coords::Coord, coords::Coord, f64) {
-        return self::Vector::to_tuple(vector);
+    pub fn split(self: Vector) -> (coords::Coord, coords::Coord, f64) {
+        return self.to_tuple();
     }
     
-    pub fn get_magnitude(vector : Vector) -> f64 {
-        let (mut x,mut y) = coords::Coord::to_tuple(vector.end - vector.start);
+    pub fn get_magnitude(self : Vector) -> f64 {
+        let mag_coord= self.end - self.start;
+        let (mut x,mut y) = mag_coord.to_tuple();
         x = x * x;
         y = y * y;
     

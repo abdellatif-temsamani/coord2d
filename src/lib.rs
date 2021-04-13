@@ -9,7 +9,7 @@ mod test {
     #[test]
     fn test_coords () {
 
-        let a: coords::Coord = coords::new(1.0, 2.0);
+        let a: coords::Coord = coords::new(3.0, 2.0);
         let x: f64 = 3.0;
         let y: f64 = 3.0;
         let b: coords::Coord = coords::new(x, y);
@@ -21,13 +21,14 @@ mod test {
         let f: coords::Coord = a / a;
         
         // to vec
-        let g: Vec<f64> = coords::Coord::to_vec(a);
+        let g: Vec<f64> = a.to_vec();
         
         // to tuple
-        let i: (f64, f64) = coords::Coord::to_tuple(c);
+        let i: (f64, f64) = c.to_tuple();
+
 
         // split
-        let (r, o) = coords::Coord::split(a);
+        let (r, o) = e.split();
         
         println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
         println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
@@ -35,9 +36,9 @@ mod test {
         println!("\nlet d: coord::Coord = a - c; | {:?}", d);
         println!("\nlet e: coord::Coord = a * d; | {:?}", e);
         println!("\nlet f: coord::Coord = a / a; | {:?}", f);
-        println!("\nlet g: Vec<f64> = coord::Coord::to_vec(a); | {:?}", g);
-        println!("\nlet i: (f64, f64) = coords::Coord::to_tuple(a); | {:?}", i);
-        println!("\nlet (r, o) = coords::Coord::split(a); | r={}, o={}" ,r,o);
+        println!("\n let g: Vec<f64> = a.to_vec(); {:?}", g);
+        println!("\n let i: (f64, f64) = c.to_tuple(); | {:?}", i);
+        println!("\n let (r, o) = e.split(); r={}, o={}" ,r,o);
     }
 
     #[test]
@@ -60,14 +61,18 @@ mod test {
         let w = m + h;
         let t = h + s;
 
-        let mag = vectors::Vector::get_magnitude(t);        
+        let vec = s.to_vec();
+        let tup = s.to_tuple();
+        let mag = t.get_magnitude();
         
         println!("\nlet h = points::new(a, b); | {:?}", h);
         println!("\nlet m = h + l; | {:?}", m);
         println!("\nlet s = h + l; | {:?}", s);
         println!("\nlet w = m + h; | {:?}", w);
         println!("\nlet t = h + s; | {:?}", t);
-        println!("\nlet mag = vectors::Vector::get_magnitude(t); | {}", mag);
+        println!("\nlet mag = t.get_magnitude(); | {}", mag);
+        println!("\nlet vec = s.to_vec(); | {:?}" , vec);
+        println!("let tup = s.to_tuple(); | {:?}" , tup);
 
     }
 
