@@ -80,6 +80,8 @@ fn main () {
 - [x] basic math
 - [X] add fn give magnitude of vector
 - [ ] add properties
+- [ ] fix coord to accept other integers and floats types
+- [ ] improve magnitude calculation function 
 
 ## stats
 
