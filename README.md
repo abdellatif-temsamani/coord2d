@@ -1,6 +1,7 @@
 # modules coord2d
-[![Crate Status](https://img.shields.io/crates/v/coord2d.svg)](https://crates.io/crates/coord2d)
-![https://img.shields.io/crates/l/coord2d](https://img.shields.io/crates/l/coord2d)
+[![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
+![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
+
 
 rust lib for coordinate in 2d system
 
