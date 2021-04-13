@@ -77,10 +77,15 @@ fn main () {
 
 # TO DO
 
-- [x] basic math
+- [X] basic math
 - [X] add fn give magnitude of vector
 - [ ] add properties
-- [ ] fix coord to accept other integers and floats types
+- [ ] fix coord to accept other integers and floats types such as:
+    ```rust
+    i8, i16, i32, i64,
+    u8, u16, u32, u64, usize
+    f32, f64
+    ```
 - [ ] improve magnitude calculation function 
 
 ## stats
