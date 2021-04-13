@@ -2,8 +2,16 @@
 name = "coord2d"
 version = "0.1.8"
 authors = ["abdellatif-dev <abdellatif.devlog@gmail.com>"]
-edition = "2018"
 description="rust lib for coordinate in 2d system"
 license="MIT"
+keywords = ["coord2d", "coord", "vector"]
+repository = "https://github.com/abdellatif-dev/coord2d"
+readme = "README.md"
+exclude = [".github"]
+autoexamples = true
+edition = "2018"
+
+[badges]
+
 
 [dependencies]

@@ -26,7 +26,7 @@ mod test {
         // to tuple
         let i: (f64, f64) = c.to_tuple();
 
-
+    
         // split
         let (r, o) = e.split();
         
@@ -75,5 +75,4 @@ mod test {
         println!("let tup = s.to_tuple(); | {:?}" , tup);
 
     }
-
 }
