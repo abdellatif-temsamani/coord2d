@@ -1,6 +1,7 @@
 use crate::coords;
 use std::ops;
-
+/// # Vector
+/// it only Coord struct as input
 #[derive(Clone, Copy , Debug)]
 pub struct Vector {
     start: coords::Coord,
@@ -8,13 +9,27 @@ pub struct Vector {
     magnitude: f64,
 }
 
+/// ## creating a new Coord
+/// #### Example  
+/// ```rust
+/// use coord2d::*;
+/// fn main () {
+///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let b: coords::Coord = coords::new(4.3, 6.3);
+///     let h = vectors::new(a, b);
+///     println!("{:?}", h);
+/// }
+/// ```
+/// * the var **h** contains to var start point and end point point
+/// * while magnitude get calculated automatically
 pub fn new(start: coords::Coord, end: coords::Coord) -> Vector {
     
     let magnitude = magnitude(start, end);
 
     return Vector{start, end, magnitude};
 }
-
+/// - magnitude
+/// called when creating to a new vector
 fn magnitude(start: coords::Coord , end: coords::Coord) -> f64 {
     let (mut x,mut y) = coords::Coord::to_tuple(end - start);
     x = x * x;
@@ -25,7 +40,93 @@ fn magnitude(start: coords::Coord , end: coords::Coord) -> f64 {
     return magnitude;
 }
 
-// math
+
+impl Vector {
+    /// ### converting to a Vec
+    /// ##### Example  
+    /// ```rust
+    /// use coord2d::*;
+    /// fn main () {
+    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let b: coords::Coord = coords::new(4.3, 6.3);
+    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let ve: Vec<coords::Coord> = s.to_vec();
+    ///     println!("{:?}", ve);
+    /// }
+    /// ```
+    pub fn to_vec(self : Vector) -> Vec<coords::Coord> {
+        return vec![self.start, self.end];
+    }
+    /// ### converting to a tuple
+    /// #### Example  
+    /// ```rust
+    /// use coord2d::*;
+    /// fn main () {
+    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let b: coords::Coord = coords::new(4.3, 6.3);
+    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let tu:(coords::Coord, coords::Coord , f64) = s.to_tuple();
+    ///     println!("{:?}", tu);
+    /// }
+    /// ```
+    pub fn to_tuple(self : Vector) -> (coords::Coord, coords::Coord, f64) {
+        return (self.start, self.end, self.magnitude);
+        
+    }
+    /// ### spliting Vectors
+    /// #### Example  
+    /// ```rust
+    /// use coord2d::*;
+    /// fn main () {
+    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let b: coords::Coord = coords::new(4.3, 6.3);
+    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let (start, end , mag):(coords::Coord, coords::Coord , f64) = s.to_tuple();
+    ///     println!("{:?} {:?} {}", start, end , mag);
+    /// }
+    /// ```
+    pub fn split(self: Vector) -> (coords::Coord, coords::Coord, f64) {
+        return self.to_tuple();
+    }
+    /// ### spliting Vectors
+    /// #### Example  
+    /// ```rust
+    /// use coord2d::*;
+    /// fn main () {
+    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let b: coords::Coord = coords::new(4.3, 6.3);
+    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let mag = s.get_magnitude();
+    ///     println!("{}", mag);
+    /// }
+    /// ```
+    pub fn get_magnitude(self : Vector) -> f64 {
+        let mag_coord= self.end - self.start;
+        let (mut x,mut y) = mag_coord.to_tuple();
+        x = x * x;
+        y = y * y;
+    
+        let sum = x + y;
+        let magnitude = sum.sqrt();
+        return magnitude;
+    
+    }
+}
+
+/// ## math
+/// ### addition
+/// ##### Example  
+/// ```rust
+/// use coord2d::*;
+/// fn main () {
+///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let b: coords::Coord = coords::new(4.3, 6.3);
+///     let s: vectors::Vector =vectors::new(a, b);
+///     let h: vectors::Vector = vectors::new(b, a);
+///     let m: vectors::Vector = h + s;
+///     println!("{:?}", m);
+/// }
+/// ```
 impl ops::Add<Vector> for Vector{
     type Output = Vector;
     
@@ -38,6 +139,19 @@ impl ops::Add<Vector> for Vector{
     }
 }
 
+/// ### subtraction
+/// ##### Example  
+/// ```rust
+/// use coord2d::*;
+/// fn main () {
+///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let b: coords::Coord = coords::new(4.3, 6.3);
+///     let s: vectors::Vector =vectors::new(a, b);
+///     let h: vectors::Vector = vectors::new(b, a);
+///     let m: vectors::Vector = h - s;
+///     println!("{:?}", m);
+/// }
+/// ```
 impl ops::Sub<Vector> for Vector{
     type Output = Vector;
     
@@ -51,6 +165,19 @@ impl ops::Sub<Vector> for Vector{
     }
 }
 
+/// ### multiplication
+/// ##### Example  
+/// ```rust
+/// use coord2d::*;
+/// fn main () {
+///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let b: coords::Coord = coords::new(4.3, 6.3);
+///     let s: vectors::Vector =vectors::new(a, b);
+///     let h: vectors::Vector = vectors::new(b, a);
+///     let m: vectors::Vector = h * s;
+///     println!("{:?}", m);
+/// }
+/// ```
 impl ops::Mul<Vector> for Vector{
     type Output = Vector;
     
@@ -64,6 +191,19 @@ impl ops::Mul<Vector> for Vector{
     }
 }
 
+/// ### division
+/// ##### Example  
+/// ```rust
+/// use coord2d::*;
+/// fn main () {
+///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let b: coords::Coord = coords::new(4.3, 6.3);
+///     let s: vectors::Vector =vectors::new(a, b);
+///     let h: vectors::Vector = vectors::new(b, a);
+///     let m: vectors::Vector = h / s;
+///     println!("{:?}", m);
+/// }
+/// ```
 impl ops::Div<Vector> for Vector{
     type Output = Vector;
     
@@ -74,31 +214,4 @@ impl ops::Div<Vector> for Vector{
 
         return Vector{start, end, magnitude};
     }
-}
-
-impl Vector {
-    pub fn to_vec(self : Vector) -> Vec<coords::Coord> {
-        return vec![self.start, self.end];
-    }
-    
-    pub fn to_tuple(self : Vector) -> (coords::Coord, coords::Coord, f64) {
-        return (self.start, self.end, self.magnitude);
-        
-    }
-
-    pub fn split(self: Vector) -> (coords::Coord, coords::Coord, f64) {
-        return self.to_tuple();
-    }
-    
-    pub fn get_magnitude(self : Vector) -> f64 {
-        let mag_coord= self.end - self.start;
-        let (mut x,mut y) = mag_coord.to_tuple();
-        x = x * x;
-        y = y * y;
-    
-        let sum = x + y;
-        let magnitude = sum.sqrt();
-        return magnitude;
-    }
-    
 }

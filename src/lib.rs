@@ -53,16 +53,16 @@ mod test {
         let d: coords::Coord = a - b;
         let e: coords::Coord = a * d;
 
-        let h = vectors::new(a, b);
-        let l = vectors::new(a, e);
+        let h:vectors::Vector = vectors::new(a, b);
+        let l:vectors::Vector = vectors::new(a, e);
 
-        let m = h + l;
-        let s = h + l;
-        let w = m + h;
-        let t = h + s;
+        let m:vectors::Vector = h + l;
+        let s:vectors::Vector = h + l;
+        let w:vectors::Vector = m + h;
+        let t:vectors::Vector = h + s;
 
-        let vec = s.to_vec();
-        let tup = s.to_tuple();
+        let vec: Vec<coords::Coord> = s.to_vec();
+        let tup:(coords::Coord, coords::Coord , f64) = s.to_tuple();
         let mag = t.get_magnitude();
         
         println!("\nlet h = points::new(a, b); | {:?}", h);
