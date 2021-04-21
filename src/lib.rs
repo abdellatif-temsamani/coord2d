@@ -1,6 +1,11 @@
 #[allow(dead_code)]
+
+#[macro_use]
 pub mod coords;
+
+#[macro_use]
 pub mod vectors;
+
 #[cfg(test)]
 mod test {
     use crate::coords;
@@ -9,10 +14,10 @@ mod test {
     #[test]
     fn test_coords () {
 
-        let a: coords::Coord = coords::new(3.0, 2.0);
-        let x: f64 = 3.0;
-        let y: f64 = 3.0;
-        let b: coords::Coord = coords::new(x, y);
+        let a: coords::Coord = new_coord!(1, 2.0);
+        let x: i64 = 3;
+        let y: f32 = 3.0;
+        let b: coords::Coord = new_coord!(x, y);
         
         // math
         let c: coords::Coord = a + b;
@@ -30,8 +35,8 @@ mod test {
         // split
         let (r, o) = e.split();
         
-        println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
-        println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
+        println!("let a: coord::Coord = new_coord!(1, 2.0); | {:?}", a);
+        println!("\nlet (x , y) = (3.0, 3);\nlet b: coords::Coord = new_coord!(x, y); | {:?}", b);
         println!("\nlet c: coord::Coord = a + b; | {:?}", c);
         println!("\nlet d: coord::Coord = a - c; | {:?}", d);
         println!("\nlet e: coord::Coord = a * d; | {:?}", e);
@@ -45,16 +50,16 @@ mod test {
     fn test_vector () {
 
 
-        let a: coords::Coord = coords::new(1.0, 2.0);
+        let a: coords::Coord = new_coord!(2.5 ,3.3);
         let x: f64 = 3.0;
-        let y: f64 = 3.0;
-        let b: coords::Coord = coords::new(x, y);
+        let y: f32 = 3.0;
+        let b: coords::Coord = new_coord!(x, y);
         
         let d: coords::Coord = a - b;
         let e: coords::Coord = a * d;
 
-        let h:vectors::Vector = vectors::new(a, b);
-        let l:vectors::Vector = vectors::new(a, e);
+        let h:vectors::Vector = new_vector!();
+        let l:vectors::Vector = new_vector!(a, e);
 
         let m:vectors::Vector = h + l;
         let s:vectors::Vector = h + l;
@@ -65,7 +70,8 @@ mod test {
         let tup:(coords::Coord, coords::Coord , f64) = s.to_tuple();
         let mag = t.get_magnitude();
         
-        println!("\nlet h = points::new(a, b); | {:?}", h);
+        println!("\nlet h:vectors::Vector = new_vector!(); | {:?}", h);
+        println!("\nlet l:vectors::Vector = new_vector!(a, e); | {:?}", l);
         println!("\nlet m = h + l; | {:?}", m);
         println!("\nlet s = h + l; | {:?}", s);
         println!("\nlet w = m + h; | {:?}", w);

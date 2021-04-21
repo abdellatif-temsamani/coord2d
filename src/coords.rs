@@ -2,7 +2,6 @@
 use std::ops;
 
 /// # Coord
-/// for now it only take f64 as input
 
 #[derive(Clone, Copy, Debug)]
 pub struct Coord{
@@ -15,15 +14,21 @@ pub struct Coord{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
+///     let a: coords::Coord = new_coord!(1, 2.0);
 ///     println!("{:?}", a);
 /// }
 /// ```
 /// * the var **a** contains to var x and y as position in a graph (O, I, J)
-
-pub fn new(x: f64, y: f64) -> Coord {
-    return Coord{x, y};
+/// * it convert i32 ,i64, u32 ,u64 , usize ,isize and f32 to f64
+#[macro_export]
+macro_rules! new_coord {
+    () => { $crate::coords::Coord {x: 0.0, y: 0.0} };
+    ($x:expr, $y:expr) => {
+        
+        $crate::coords::Coord { x: $x as f64, y: $y as f64}
+    };
 }
+
 
 /// ## implementations
 impl  Coord {
@@ -33,7 +38,7 @@ impl  Coord {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
     ///     let ve: Vec<f64> = a.to_vec();
     ///     println!("{:?}", ve);
     /// }
@@ -48,7 +53,7 @@ impl  Coord {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
     ///     let tu: (f64, f64) = a.to_tuple();
     ///     println!("{:?}", tu);
     /// }
@@ -63,7 +68,7 @@ impl  Coord {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
     ///     let (x, y) = a.split();
     ///     println!("{}, {}", x , y);
     /// }
@@ -79,8 +84,8 @@ impl  Coord {
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(5.4, 3.3);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
 ///     let sum:coords::Coord = a + b;
 ///     println!("{:?}", sum);
 /// }
@@ -100,8 +105,8 @@ impl ops::Add<Coord> for Coord{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(5.4, 3.3);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
 ///     let sub:coords::Coord = a - b;
 ///     println!("{:?}", sub);
 /// }
@@ -123,8 +128,8 @@ impl ops::Sub<Coord> for Coord{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(5.4, 3.3);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
 ///     let mul:coords::Coord = a * b;
 ///     println!("{:?}", mul);
 /// }
@@ -145,8 +150,8 @@ impl ops::Mul<Coord> for Coord{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(5.4, 3.3);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
 ///     let div:coords::Coord = a / b;
 ///     println!("{:?}", div);
 /// }

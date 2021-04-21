@@ -14,9 +14,9 @@ pub struct Vector {
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(4.3, 6.3);
-///     let h = vectors::new(a, b);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
+///     let h:vectors::Vector = new_vector!(a, b);
 ///     println!("{:?}", h);
 /// }
 /// ```
@@ -28,6 +28,15 @@ pub fn new(start: coords::Coord, end: coords::Coord) -> Vector {
 
     return Vector{start, end, magnitude};
 }
+#[macro_export]
+macro_rules! new_vector {
+        () => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
+    ($start:expr, $end:expr) => {
+        $crate::vectors::new($start as coords::Coord , $end as coords::Coord)
+    };
+}
+
+
 /// - magnitude
 /// called when creating to a new vector
 fn magnitude(start: coords::Coord , end: coords::Coord) -> f64 {
@@ -47,9 +56,9 @@ impl Vector {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
-    ///     let b: coords::Coord = coords::new(4.3, 6.3);
-    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
+    ///     let b: coords::Coord = new_coord!(0.4, 3.3);
+    ///     let s:vectors::Vector =new_vector!(a, b);
     ///     let ve: Vec<coords::Coord> = s.to_vec();
     ///     println!("{:?}", ve);
     /// }
@@ -62,9 +71,9 @@ impl Vector {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
-    ///     let b: coords::Coord = coords::new(4.3, 6.3);
-    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
+    ///     let b: coords::Coord = new_coord!(0.4, 3.3);
+    ///     let s:vectors::Vector = new_vector!(a, b);
     ///     let tu:(coords::Coord, coords::Coord , f64) = s.to_tuple();
     ///     println!("{:?}", tu);
     /// }
@@ -78,9 +87,9 @@ impl Vector {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
-    ///     let b: coords::Coord = coords::new(4.3, 6.3);
-    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
+    ///     let b: coords::Coord = new_coord!(0.4, 3.3);
+    ///     let s:vectors::Vector =new_vector!(a, b);
     ///     let (start, end , mag):(coords::Coord, coords::Coord , f64) = s.to_tuple();
     ///     println!("{:?} {:?} {}", start, end , mag);
     /// }
@@ -93,9 +102,9 @@ impl Vector {
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
-    ///     let a: coords::Coord = coords::new(1.0, 2.0);
-    ///     let b: coords::Coord = coords::new(4.3, 6.3);
-    ///     let s:vectors::Vector =vectors::new(a, b);
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
+    ///     let b: coords::Coord = new_coord!(0.4, 3.3);
+    ///     let s:vectors::Vector =new_vector!(a, b);
     ///     let mag = s.get_magnitude();
     ///     println!("{}", mag);
     /// }
@@ -119,10 +128,10 @@ impl Vector {
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(4.3, 6.3);
-///     let s: vectors::Vector =vectors::new(a, b);
-///     let h: vectors::Vector = vectors::new(b, a);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
+///     let s: vectors::Vector = new_vector!(a, b);
+///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h + s;
 ///     println!("{:?}", m);
 /// }
@@ -144,10 +153,10 @@ impl ops::Add<Vector> for Vector{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(4.3, 6.3);
-///     let s: vectors::Vector =vectors::new(a, b);
-///     let h: vectors::Vector = vectors::new(b, a);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
+///     let s: vectors::Vector =new_vector!(a, b);
+///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h - s;
 ///     println!("{:?}", m);
 /// }
@@ -170,10 +179,10 @@ impl ops::Sub<Vector> for Vector{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(4.3, 6.3);
-///     let s: vectors::Vector =vectors::new(a, b);
-///     let h: vectors::Vector = vectors::new(b, a);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
+///     let s: vectors::Vector =new_vector!(a, b);
+///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h * s;
 ///     println!("{:?}", m);
 /// }
@@ -196,10 +205,10 @@ impl ops::Mul<Vector> for Vector{
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
-///     let a: coords::Coord = coords::new(1.0, 2.0);
-///     let b: coords::Coord = coords::new(4.3, 6.3);
-///     let s: vectors::Vector =vectors::new(a, b);
-///     let h: vectors::Vector = vectors::new(b, a);
+///     let a: coords::Coord = new_coord!(1, 2.0);
+///     let b: coords::Coord = new_coord!(0.4, 3.3);
+///     let s: vectors::Vector =new_vector!(a, b);
+///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h / s;
 ///     println!("{:?}", m);
 /// }
