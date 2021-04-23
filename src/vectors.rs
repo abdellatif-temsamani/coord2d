@@ -30,10 +30,9 @@ pub fn new(start: coords::Coord, end: coords::Coord) -> Vector {
 }
 #[macro_export]
 macro_rules! new_vector {
-        () => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
-    ($start:expr, $end:expr) => {
-        $crate::vectors::new($start as coords::Coord , $end as coords::Coord)
-    };
+    () => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
+    ($start:expr, $end:expr) => { $crate::vectors::new($start as coords::Coord , $end as coords::Coord) };
+    ($end:expr) => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $end as coords::Coord) };
 }
 
 
@@ -155,7 +154,7 @@ impl ops::Add<Vector> for Vector{
 /// fn main () {
 ///     let a: coords::Coord = new_coord!(1, 2.0);
 ///     let b: coords::Coord = new_coord!(0.4, 3.3);
-///     let s: vectors::Vector =new_vector!(a, b);
+///     let s: vectors::Vector = new_vector!(a, b);
 ///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h - s;
 ///     println!("{:?}", m);
@@ -181,7 +180,7 @@ impl ops::Sub<Vector> for Vector{
 /// fn main () {
 ///     let a: coords::Coord = new_coord!(1, 2.0);
 ///     let b: coords::Coord = new_coord!(0.4, 3.3);
-///     let s: vectors::Vector =new_vector!(a, b);
+///     let s: vectors::Vector = new_vector!(a, b);
 ///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h * s;
 ///     println!("{:?}", m);
@@ -207,7 +206,7 @@ impl ops::Mul<Vector> for Vector{
 /// fn main () {
 ///     let a: coords::Coord = new_coord!(1, 2.0);
 ///     let b: coords::Coord = new_coord!(0.4, 3.3);
-///     let s: vectors::Vector =new_vector!(a, b);
+///     let s: vectors::Vector = new_vector!(a, b);
 ///     let h: vectors::Vector = new_vector!(b, a);
 ///     let m: vectors::Vector = h / s;
 ///     println!("{:?}", m);

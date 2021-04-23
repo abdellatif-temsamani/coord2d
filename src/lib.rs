@@ -15,6 +15,7 @@ mod test {
     fn test_coords () {
 
         let a: coords::Coord = new_coord!(1, 2.0);
+        let o: coords::Coord = new_coord!(2.0);
         let x: i64 = 3;
         let y: f32 = 3.0;
         let b: coords::Coord = new_coord!(x, y);
@@ -23,7 +24,7 @@ mod test {
         let c: coords::Coord = a + b;
         let d: coords::Coord = a - c;
         let e: coords::Coord = a * d;
-        let f: coords::Coord = a / a;
+        let f: coords::Coord = o / a;
         
         // to vec
         let g: Vec<f64> = a.to_vec();
@@ -36,6 +37,7 @@ mod test {
         let (r, o) = e.split();
         
         println!("let a: coord::Coord = new_coord!(1, 2.0); | {:?}", a);
+        println!("let o: coord::Coord = new_coord!(2.0); | {:?}", o);
         println!("\nlet (x , y) = (3.0, 3);\nlet b: coords::Coord = new_coord!(x, y); | {:?}", b);
         println!("\nlet c: coord::Coord = a + b; | {:?}", c);
         println!("\nlet d: coord::Coord = a - c; | {:?}", d);
@@ -51,6 +53,7 @@ mod test {
 
 
         let a: coords::Coord = new_coord!(2.5 ,3.3);
+        let o: coords::Coord = new_coord!(2.5);
         let x: f64 = 3.0;
         let y: f32 = 3.0;
         let b: coords::Coord = new_coord!(x, y);
@@ -59,6 +62,7 @@ mod test {
         let e: coords::Coord = a * d;
 
         let h:vectors::Vector = new_vector!();
+        let f:vectors::Vector = new_vector!(o);
         let l:vectors::Vector = new_vector!(a, e);
 
         let m:vectors::Vector = h + l;
@@ -71,6 +75,7 @@ mod test {
         let mag = t.get_magnitude();
         
         println!("\nlet h:vectors::Vector = new_vector!(); | {:?}", h);
+        println!("\nlet f:vectors::Vector = new_vector!(); | {:?}", f);
         println!("\nlet l:vectors::Vector = new_vector!(a, e); | {:?}", l);
         println!("\nlet m = h + l; | {:?}", m);
         println!("\nlet s = h + l; | {:?}", s);

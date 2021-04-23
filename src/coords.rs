@@ -16,6 +16,10 @@ pub struct Coord{
 /// fn main () {
 ///     let a: coords::Coord = new_coord!(1, 2.0);
 ///     println!("{:?}", a);
+///     // returns Coord {x: 1.0, y: 2.0}
+///     let a: coords::Coord = new_coord!(2.0);
+///     println!("{:?}", a);
+///     // returns Coord {x: 0.0, y: 2.0}
 /// }
 /// ```
 /// * the var **a** contains to var x and y as position in a graph (O, I, J)
@@ -26,6 +30,10 @@ macro_rules! new_coord {
     ($x:expr, $y:expr) => {
         
         $crate::coords::Coord { x: $x as f64, y: $y as f64}
+    };
+    ($y:expr) => {
+        
+        $crate::coords::Coord { x: 0.0 , y: $y as f64}
     };
 }
 
