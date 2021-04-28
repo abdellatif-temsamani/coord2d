@@ -1,6 +1,6 @@
 [package]
 name = "coord2d"
-version = "0.1.12"
+version = "0.1.13"
 authors = ["abdellatif-dev <abdellatif.devlog@gmail.com>"]
 description="rust lib for coordinate in 2d system"
 license="MIT"

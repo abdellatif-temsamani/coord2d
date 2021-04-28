@@ -11,10 +11,10 @@ rust lib for coordinate in 2d system
 ```rust
 use coord2d::*;
 fn main () {
-    let a: coords::Coord = coords::new(1.0, 2.0);
+    let a: coords::Coord = new_coord!(1, 2.0);
     let x: f64 = 3.0;
-    let y: f64 = 3.0;
-    let b: coords::Coord = coords::new(x, y);
+    let y: i32 = 3;
+    let b: coords::Coord = new_coord!(x, y);
     
     // math
     let c: coords::Coord = a + b;
@@ -47,15 +47,15 @@ fn main () {
 use coord2d::*;
 
 fn main () {
-    let a: coords::Coord = coords::new(1.0, 2.0);
+    let a: coords::Coord = new_coord!(1, 2.0);
     let x: f64 = 3.0;
-    let y: f64 = 3.0;
-    let b: coords::Coord = coords::new(x, y);
-    
+    let y: i32 = 3;
+    let b: coords::Coord = new_coord!(x, y);
+     
     let d: coords::Coord = a - b;
     let e: coords::Coord = a * d;
-    let h = vectors::new(a, b);
-    let l = vectors::new(a, e);
+    let h:vectors::Vector = new_vector!(a, b);
+    let l:vectors::Vector = new_vector!(d, e);
     let m = h + l;
     let s = h + l;
     let w = m + h;
@@ -80,7 +80,7 @@ fn main () {
 - [X] basic math
 - [X] add fn give magnitude of vector
 - [ ] add properties
-- [ ] fix coord to accept other integers and floats types such as:
+- [X] fix coord to accept other integers and floats types such as:
     ```rust
     i8, i16, i32, i64,
     u8, u16, u32, u64, usize
