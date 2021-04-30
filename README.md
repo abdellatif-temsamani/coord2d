@@ -75,17 +75,38 @@ fn main () {
 }
 ```
 
+## example Debug 
+
+```rust
+use coord2d::*;
+
+fn main () {
+    let a: coords::Coord = new_coord!(1, 2.0);
+    let x: f64 = 3.0;
+    let y: i32 = 3;
+    let b: coords::Coord = new_coord!(x, y);
+     
+    let l:vectors::Vector = new_vector!(a, b);
+    
+    debug::debug(a);
+    debug::debug(l);
+    
+}
+```
+
 # TO DO
 
 - [X] basic math
 - [X] add fn give magnitude of vector
-- [ ] add properties
 - [X] fix coord to accept other integers and floats types such as:
     ```rust
-    i8, i16, i32, i64,
+    i8, i16, i32, i64, isize
     u8, u16, u32, u64, usize
     f32, f64
     ```
+- [X] add easy debug function
+- [ ] improve lib
+- [ ] add properties
 - [ ] improve magnitude calculation function 
 
 ## stats
@@ -93,3 +114,5 @@ fn main () {
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev&show_icons=true&theme=radical)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=abdellatif-dev&layout=compact&show_icons=true&theme=radical)](https://github.com/abdellatif-dev/github-readme-stats)
+
+you contact us over contact@abdellatifdev.xyz

@@ -6,10 +6,12 @@ pub mod coords;
 #[macro_use]
 pub mod vectors;
 
+#[macro_use]
+pub mod debug;
+
 #[cfg(test)]
 mod test {
-    use crate::coords;
-    use crate::vectors;
+    use crate::*;
     
     #[test]
     fn test_coords () {
@@ -85,5 +87,14 @@ mod test {
         println!("\nlet vec = s.to_vec(); | {:?}" , vec);
         println!("let tup = s.to_tuple(); | {:?}" , tup);
 
+    }
+    #[test]
+    fn test_debug() {
+        let a: coords::Coord = new_coord!(2.5 ,3.3);
+        let o: coords::Coord = new_coord!(2.5);
+        let l:vectors::Vector = new_vector!(a, o);
+                
+        debug::debug(a);
+        debug::debug(l);
     }
 }

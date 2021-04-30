@@ -2,7 +2,6 @@
 use std::ops;
 
 /// # Coord
-
 #[derive(Clone, Copy, Debug)]
 pub struct Coord{
     pub x: f64,
@@ -36,7 +35,6 @@ macro_rules! new_coord {
         $crate::coords::Coord { x: 0.0 , y: $y as f64}
     };
 }
-
 
 /// ## implementations
 impl  Coord {

@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 use crate::coords;
 use std::ops;
 /// # Vector
@@ -9,7 +10,7 @@ pub struct Vector {
     magnitude: f64,
 }
 
-/// ## creating a new Coord
+/// ## creating a new Vector 
 /// #### Example  
 /// ```rust
 /// use coord2d::*;
@@ -22,19 +23,19 @@ pub struct Vector {
 /// ```
 /// * the var **h** contains to var start point and end point point
 /// * while magnitude get calculated automatically
-pub fn new(start: coords::Coord, end: coords::Coord) -> Vector {
+#[macro_export]
+macro_rules! new_vector {
+    () => { $crate::vectors::__new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
+    ($start:expr, $end:expr) => { $crate::vectors::__new($start as coords::Coord , $end as coords::Coord) };
+    ($end:expr) => { $crate::vectors::__new($crate::coords::Coord{x: 0.0 , y: 0.0}, $end as coords::Coord) };
+}
+
+pub fn __new(start: coords::Coord, end: coords::Coord) -> Vector {
     
     let magnitude = magnitude(start, end);
 
     return Vector{start, end, magnitude};
 }
-#[macro_export]
-macro_rules! new_vector {
-    () => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
-    ($start:expr, $end:expr) => { $crate::vectors::new($start as coords::Coord , $end as coords::Coord) };
-    ($end:expr) => { $crate::vectors::new($crate::coords::Coord{x: 0.0 , y: 0.0}, $end as coords::Coord) };
-}
-
 
 /// - magnitude
 /// called when creating to a new vector
