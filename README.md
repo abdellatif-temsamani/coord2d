@@ -1,6 +1,6 @@
 # modules coord2d
 [![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
-[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.1.16/coord2d/)
+[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.1.17/coord2d/)
 ![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
 
 
@@ -15,21 +15,21 @@ fn main () {
     let x: f64 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
-    
+
     // math
     let c: coords::Coord = a + b;
     let d: coords::Coord = a - c;
     let e: coords::Coord = a * d;
     let f: coords::Coord = a / a;
-    
+
     // to vec
     let g: Vec<f64> = a.to_vec();
-    
+
     // to tuple
     let i: (f64, f64) = c.to_tuple();
     // split
     let (r, o) = e.split();
-    
+
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
     println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
     println!("\nlet c: coord::Coord = a + b; | {:?}", c);
@@ -51,7 +51,7 @@ fn main () {
     let x: f64 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
-     
+
     let d: coords::Coord = a - b;
     let e: coords::Coord = a * d;
     let h:vectors::Vector = new_vector!(a, b);
@@ -63,7 +63,7 @@ fn main () {
     let vec = s.to_vec();
     let tup = s.to_tuple();
     let mag = t.get_magnitude();
-    
+
     println!("\nlet h = points::new(a, b); | {:?}", h);
     println!("\nlet m = h + l; | {:?}", m);
     println!("\nlet s = h + l; | {:?}", s);
@@ -75,7 +75,7 @@ fn main () {
 }
 ```
 
-## example Debug 
+## example Debug
 
 ```rust
 use coord2d::*;
@@ -85,12 +85,18 @@ fn main () {
     let x: f64 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
-     
+
     let l:vectors::Vector = new_vector!(a, b);
-    
+
     debug::debug(a);
     debug::debug(l);
-    
+
+    let type_a = debug::type_of(a);
+    let type_h = debug::type_of(h);
+
+    println!("{}", type_a);
+    println!("{}", type_h);
+
 }
 ```
 
@@ -107,7 +113,7 @@ fn main () {
 - [X] add easy debug function
 - [ ] improve lib
 - [ ] add properties
-- [ ] improve magnitude calculation function 
+- [ ] improve magnitude calculation function
 
 ## stats
 
