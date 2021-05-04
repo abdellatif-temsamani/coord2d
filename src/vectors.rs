@@ -5,13 +5,14 @@ use std::ops;
 /// it only Coord struct as input
 #[derive(Clone, Copy , Debug)]
 pub struct Vector {
-    start: coords::Coord,
-    end: coords::Coord,
-    magnitude: f64,
+    pub start: coords::Coord,
+    pub end: coords::Coord,
+    pub magnitude: f64,
 }
 
-/// ## creating a new Vector 
-/// #### Example  
+
+/// ## creating a new Vector
+/// #### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -25,21 +26,23 @@ pub struct Vector {
 /// * while magnitude get calculated automatically
 #[macro_export]
 macro_rules! new_vector {
-    () => { $crate::vectors::__new($crate::coords::Coord{x: 0.0 , y: 0.0}, $crate::coords::Coord{x: 0.0 , y: 0.0}) };
-    ($start:expr, $end:expr) => { $crate::vectors::__new($start as coords::Coord , $end as coords::Coord) };
-    ($end:expr) => { $crate::vectors::__new($crate::coords::Coord{x: 0.0 , y: 0.0}, $end as coords::Coord) };
+    () => { $crate::vectors::Vector{start: coords::Coord{x: 0.0 , y: 0.0},
+            end: coords::Coord{x: 0.0 , y: 0.0},
+            magnitude: 0.0}};
+
+    ($start:expr, $end:expr) => { vectors::Vector{start: $start,
+            end: $end ,
+            magnitude: vectors::__magnitude__($start as coords::Coord, $end as coords::Coord)}};
+
+
+    ($end:expr) => { vectors::Vector{start: coords::Coord{x: 0.0 , y: 0.0},
+            end: coords::Coord{x: 0.0 , y: 0.0},
+            magnitude: vectors::__magnitude__(coords::Coord{x: 0.0 , y: 0.0}, $end as coords::Coord)}};
+
 }
-
-pub fn __new(start: coords::Coord, end: coords::Coord) -> Vector {
-    
-    let magnitude = magnitude(start, end);
-
-    return Vector{start, end, magnitude};
-}
-
-/// - magnitude
+/// # magnitude
 /// called when creating to a new vector
-fn magnitude(start: coords::Coord , end: coords::Coord) -> f64 {
+pub fn __magnitude__(start: coords::Coord , end: coords::Coord) -> f64 {
     let (mut x,mut y) = coords::Coord::to_tuple(end - start);
     x = x * x;
     y = y * y;
@@ -52,7 +55,7 @@ fn magnitude(start: coords::Coord , end: coords::Coord) -> f64 {
 
 impl Vector {
     /// ### converting to a Vec
-    /// ##### Example  
+    /// ##### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -66,8 +69,9 @@ impl Vector {
     pub fn to_vec(self : Vector) -> Vec<coords::Coord> {
         return vec![self.start, self.end];
     }
+
     /// ### converting to a tuple
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -80,10 +84,10 @@ impl Vector {
     /// ```
     pub fn to_tuple(self : Vector) -> (coords::Coord, coords::Coord, f64) {
         return (self.start, self.end, self.magnitude);
-        
     }
+
     /// ### spliting Vectors
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -97,8 +101,9 @@ impl Vector {
     pub fn split(self: Vector) -> (coords::Coord, coords::Coord, f64) {
         return self.to_tuple();
     }
+
     /// ### spliting Vectors
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -114,17 +119,34 @@ impl Vector {
         let (mut x,mut y) = mag_coord.to_tuple();
         x = x * x;
         y = y * y;
-    
+
         let sum = x + y;
         let magnitude = sum.sqrt();
         return magnitude;
-    
+    }
+
+    /// # geting mid point
+    /// #### Example
+    /// ```rust
+    /// use coord2d::*;
+    /// fn main () {
+    ///     let a: coords::Coord = new_coord!(1, 2.0);
+    ///     let b: coords::Coord = new_coord!(0.4, 3.3);
+    ///     let s:vectors::Vector =new_vector!(a, b);
+    ///     let mid= s.get_midpoint();
+    ///     println!("{}", mid);
+    /// }
+    pub fn get_midpoint (self : Vector) -> f64 {
+        let coordsum= self.start + self.end;
+        let sum = coordsum.x + coordsum.y;
+        let midpoint: f64 = sum / 2.0;
+        return midpoint;
     }
 }
 
 /// ## math
 /// ### addition
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -138,18 +160,18 @@ impl Vector {
 /// ```
 impl ops::Add<Vector> for Vector{
     type Output = Vector;
-    
+
     fn add(self: Vector, rhs: Vector) -> Vector {
         let start = self.start + rhs.start;
         let end = self.end + rhs.end;
-        let magnitude = magnitude(start, end);
+        let magnitude = __magnitude__(start, end);
 
         return Vector{start, end, magnitude};
     }
 }
 
 /// ### subtraction
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -163,11 +185,11 @@ impl ops::Add<Vector> for Vector{
 /// ```
 impl ops::Sub<Vector> for Vector{
     type Output = Vector;
-    
+
     fn sub(self: Vector, rhs: Vector) -> Vector {
         let start = self.start - rhs.start;
         let end = self.end - rhs.end;
-        let magnitude = magnitude(start, end);
+        let magnitude = __magnitude__(start, end);
 
         return Vector{start, end, magnitude};
 
@@ -175,7 +197,7 @@ impl ops::Sub<Vector> for Vector{
 }
 
 /// ### multiplication
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -189,11 +211,11 @@ impl ops::Sub<Vector> for Vector{
 /// ```
 impl ops::Mul<Vector> for Vector{
     type Output = Vector;
-    
+
     fn mul(self: Vector, rhs: Vector) -> Vector {
         let start = self.start * rhs.start;
         let end = self.end * rhs.end;
-        let magnitude = magnitude(start, end);
+        let magnitude = __magnitude__(start, end);
 
         return Vector{start, end, magnitude};
 
@@ -201,7 +223,7 @@ impl ops::Mul<Vector> for Vector{
 }
 
 /// ### division
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -215,11 +237,11 @@ impl ops::Mul<Vector> for Vector{
 /// ```
 impl ops::Div<Vector> for Vector{
     type Output = Vector;
-    
+
     fn div(self: Vector, rhs: Vector) -> Vector {
         let start = self.start / rhs.start;
         let end = self.end / rhs.end;
-        let magnitude = magnitude(start, end);
+        let magnitude = __magnitude__(start, end);
 
         return Vector{start, end, magnitude};
     }

@@ -9,7 +9,7 @@ pub struct Coord{
 }
 
 /// ## creating a new Coord
-/// #### Example  
+/// #### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -27,20 +27,20 @@ pub struct Coord{
 macro_rules! new_coord {
     () => { $crate::coords::Coord {x: 0.0, y: 0.0} };
     ($x:expr, $y:expr) => {
-        
+
         $crate::coords::Coord { x: $x as f64, y: $y as f64}
     };
     ($y:expr) => {
-        
+
         $crate::coords::Coord { x: 0.0 , y: $y as f64}
     };
 }
 
 /// ## implementations
 impl  Coord {
-    
+
     /// ### converting to a Vec
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -52,10 +52,10 @@ impl  Coord {
     pub fn to_vec(self: Coord ) -> Vec<f64> {
         return vec![self.x, self.y];
     }
-    
+
 
     /// ### converting to a tuple
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -66,11 +66,11 @@ impl  Coord {
     /// ```
     pub fn to_tuple(self :Coord) -> (f64, f64) {
         return (self.x, self.y);
-        
+
     }
 
     /// ### spliting Coord
-    /// #### Example  
+    /// #### Example
     /// ```rust
     /// use coord2d::*;
     /// fn main () {
@@ -86,7 +86,7 @@ impl  Coord {
 
 /// ## math
 /// ### addition
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -98,7 +98,7 @@ impl  Coord {
 /// ```
 impl ops::Add<Coord> for Coord{
     type Output = Coord;
-    
+
     fn add(self: Coord, rhs: Coord) -> Coord {
         let x = self.x + rhs.x;
         let y = self.y + rhs.y;
@@ -107,7 +107,7 @@ impl ops::Add<Coord> for Coord{
     }
 }
 /// ### subtraction
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -120,7 +120,7 @@ impl ops::Add<Coord> for Coord{
 
 impl ops::Sub<Coord> for Coord{
     type Output = Coord;
-    
+
     fn sub(self: Coord, rhs: Coord) -> Coord {
         let x = self.x - rhs.x;
         let y = self.y - rhs.y;
@@ -130,7 +130,7 @@ impl ops::Sub<Coord> for Coord{
 }
 
 /// ### multiplication
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -142,7 +142,7 @@ impl ops::Sub<Coord> for Coord{
 /// ```
 impl ops::Mul<Coord> for Coord{
     type Output = Coord;
-    
+
     fn mul(self: Coord, rhs: Coord) -> Coord {
         let x = self.x * rhs.x;
         let y = self.y * rhs.y;
@@ -152,7 +152,7 @@ impl ops::Mul<Coord> for Coord{
 }
 
 /// ### division
-/// ##### Example  
+/// ##### Example
 /// ```rust
 /// use coord2d::*;
 /// fn main () {
@@ -164,7 +164,7 @@ impl ops::Mul<Coord> for Coord{
 /// ```
 impl ops::Div<Coord> for Coord{
     type Output = Coord;
-    
+
     fn div(self: Coord, rhs: Coord) -> Coord {
         let x = self.x / rhs.x;
         let y = self.y / rhs.y;
@@ -172,4 +172,3 @@ impl ops::Div<Coord> for Coord{
         return Coord{x, y};
     }
 }
-
