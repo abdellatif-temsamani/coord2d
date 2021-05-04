@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 use std::ops;
 
-/// # Coord
+/// # Coord sturt
 #[derive(Clone, Copy, Debug)]
 pub struct Coord{
     pub x: f64,
