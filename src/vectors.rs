@@ -132,15 +132,15 @@ impl Vector {
     /// fn main () {
     ///     let a: coords::Coord = new_coord!(1, 2.0);
     ///     let b: coords::Coord = new_coord!(0.4, 3.3);
-    ///     let s:vectors::Vector =new_vector!(a, b);
-    ///     let mid= s.get_midpoint();
-    ///     println!("{}", mid);
+    ///     let s: vectors::Vector =new_vector!(a, b);
+    ///     let mid: coords::Coord = s.get_midpoint();
+    ///     debug::debug(mid); 
     /// }
-    pub fn get_midpoint (self : Vector) -> f64 {
-        let coordsum= self.start + self.end;
-        let sum = coordsum.x + coordsum.y;
-        let midpoint: f64 = sum / 2.0;
-        return midpoint;
+    pub fn get_midpoint (self : Vector) -> coords::Coord {
+        let mid_x= self.start.x + self.end.x;
+        let mid_y= self.start.y + self.end.y;
+
+        return coords::Coord{x: mid_x , y: mid_y};
     }
 }
 

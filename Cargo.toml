@@ -1,6 +1,6 @@
 [package]
 name = "coord2d"
-version = "0.1.18"
+version = "0.1.19"
 authors = ["abdellatif-dev <abdellatif.devlog@gmail.com>"]
 description="rust lib for coordinate in 2d system"
 license="MIT"
@@ -9,7 +9,7 @@ keywords = ["coord2d", "coord", "vector"]
 repository = "https://github.com/abdellatif-dev/coord2d"
 readme = "README.md"
 exclude = [".github/*", "CODE_OF_CONDUCT.md", "SECURITY.md", "CONTRIBUTING.md"]
-documentation = "https://docs.rs/coord2d/0.1.16/coord2d/" 
+documentation = "https://docs.rs/coord2d/0.1.19/coord2d/" 
 edition = "2018"
 
 [badges]

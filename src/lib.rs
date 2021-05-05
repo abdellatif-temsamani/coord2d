@@ -75,7 +75,7 @@ mod test {
         let vec: Vec<coords::Coord> = s.to_vec();
         let tup:(coords::Coord, coords::Coord , f64) = s.to_tuple();
         let mag: f64 = t.get_magnitude();
-        let mid: f64 = m.get_midpoint();
+        let mid: coords::Coord = m.get_midpoint();
         println!("\nlet h:vectors::Vector = new_vector!(); | {:?}", h);
         println!("\nlet f:vectors::Vector = new_vector!(); | {:?}", f);
         println!("\nlet l:vectors::Vector = new_vector!(a, e); | {:?}", l);
@@ -86,7 +86,7 @@ mod test {
         println!("\nlet mag = t.get_magnitude(); | {}", mag);
         println!("\nlet vec = s.to_vec(); | {:?}" , vec);
         println!("\nlet tup = s.to_tuple(); | {:?}" , tup);
-        println!("\nlet mid: f64 = m.get_midpoint(); | {}" , mid);
+        println!("\nlet mid: coords::Coord = m.get_midpoint(); | {:?}" , mid);
 
     }
     #[test]

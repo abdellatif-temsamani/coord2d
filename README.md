@@ -1,6 +1,6 @@
 # modules coord2d
 [![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
-[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.1.16/coord2d/)
+[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.1.19/coord2d/)
 ![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
 
 
@@ -29,6 +29,8 @@ fn main () {
     let i: (f64, f64) = c.to_tuple();
     // split
     let (r, o) = e.split();
+    let mag: f64 = t.get_magnitude();
+    let mid: coords::Coord = m.get_midpoint();
 
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
     println!("\nlet (x , y) = (3, 3);\nlet b: coord::Coord = coord::new(x, y); | {:?}", b);
@@ -39,6 +41,8 @@ fn main () {
     println!("\n let g: Vec<f64> = a.to_vec(); {:?}", g);
     println!("\n let i: (f64, f64) = c.to_tuple(); | {:?}", i);
     println!("\n let (r, o) = e.split(); r={}, o={}" ,r,o);
+    println!("\nlet mag = t.get_magnitude(); | {}", mag);
+    println!("\nlet mid: coords::Coord = m.get_midpoint(); | {:?}" , mid);
 }
 ```
 ## example Vectors
@@ -111,6 +115,7 @@ fn main () {
     f32, f64
     ```
 - [X] add easy debug function
+- [X] get mid point from vector
 - [ ] improve lib
 - [ ] add properties
 - [ ] improve magnitude calculation function
