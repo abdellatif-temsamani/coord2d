@@ -61,7 +61,6 @@ pub fn __magnitude__(start: coords::Coord, end: coords::Coord) -> f64 {
     let sum = x + y;
 
     sum.sqrt()
-
 }
 
 impl Vector {
@@ -132,7 +131,6 @@ impl Vector {
 
         let sum = x + y;
         sum.sqrt()
-
     }
 
     /// # geting mid point
