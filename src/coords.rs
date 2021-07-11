@@ -40,6 +40,12 @@ macro_rules! new_coord {
             y: $y as i32,
         }
     };
+    () => {
+        $crate::coords::Coord {
+            x: 0,
+            y: 0,
+        }
+    };
 }
 
 /// ## implementations
