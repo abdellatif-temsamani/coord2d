@@ -12,7 +12,7 @@ rust lib for coordinate in 2d system
 use coord2d::*;
 fn main () {
     let a: coords::Coord = new_coord!(1, 2.0);
-    let x: i32 = 3.0;
+    let x: f64= 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
 
@@ -29,7 +29,7 @@ fn main () {
     let i: (i32, i32) = c.to_tuple();
     // split
     let (r, o) = e.split();
-    let mag: i32 = t.get_magnitude();
+    let mag: f64= t.get_magnitude();
     let mid: coords::Coord = m.get_midpoint();
 
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
