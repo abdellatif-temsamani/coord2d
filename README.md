@@ -116,10 +116,11 @@ fn main () {
     ```
 - [X] add easy debug function
 - [X] get mid point from vector
-- [ ] improve lib
-- [ ] add properties
-- [ ] improve magnitude calculation function
+- [x] improve lib
+- [x] add properties
+- [x] improve magnitude calculation function
 
+Any suggestion please open issue or do a pull request
 ## stats
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev&show_icons=true&theme=radical)
