@@ -26,7 +26,7 @@ pub struct Coord {
 #[macro_export]
 macro_rules! new_coord {
     () => {
-        $crate::coords::Coord { x: 0.0, y: 0.0 }
+        $crate::coords::Coord { x: 0, y: 0 }
     };
     ($x:expr, $y:expr) => {
         $crate::coords::Coord {
@@ -38,12 +38,6 @@ macro_rules! new_coord {
         $crate::coords::Coord {
             x: 0,
             y: $y as i32,
-        }
-    };
-    () => {
-        $crate::coords::Coord {
-            x: 0,
-            y: 0,
         }
     };
 }
