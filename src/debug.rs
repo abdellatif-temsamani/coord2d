@@ -6,7 +6,7 @@ use std::{any::type_name, fmt::Debug};
 /// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
-/// let x: f64 = 3.0;
+/// let x: i32 = 3.0;
 /// let y: i32 = 3;
 /// let b: coords::Coord = new_coord!(x, y);
 ///
@@ -26,7 +26,7 @@ pub fn debug<T: Debug>(db: T) {
 /// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
-/// let x: f64 = 3.0;
+/// let x: i32 = 3.0;
 /// let y: i32 = 3;
 /// let b: coords::Coord = new_coord!(x, y);
 ///

@@ -4,8 +4,8 @@ use std::ops;
 /// # Coord sturt
 #[derive(Clone, Copy, Debug)]
 pub struct Coord {
-    pub x: f64,
-    pub y: f64,
+    pub x: i32,
+    pub y: i32,
 }
 
 /// ## creating a new Coord
@@ -21,8 +21,8 @@ pub struct Coord {
 /// // returns Coord {x: 0.0, y: 2.0}
 /// ```
 /// * the var **a** contains to var x and y as position in a graph (O, I, J)
-/// * it convert i32 ,i64, u32 ,u64 , usize ,isize and f32 to f64
-/// * returns f64
+/// * it convert i32 ,i64, u32 ,u64 , usize ,isize and f32 to i32
+/// * returns i32
 #[macro_export]
 macro_rules! new_coord {
     () => {
@@ -30,14 +30,14 @@ macro_rules! new_coord {
     };
     ($x:expr, $y:expr) => {
         $crate::coords::Coord {
-            x: $x as f64,
-            y: $y as f64,
+            x: $x as i32,
+            y: $y as i32,
         }
     };
     ($y:expr) => {
         $crate::coords::Coord {
-            x: 0.0,
-            y: $y as f64,
+            x: 0,
+            y: $y as i32,
         }
     };
 }
@@ -50,10 +50,10 @@ impl Coord {
     /// use coord2d::coords;
     ///
     /// let a: coords::Coord = new_coord!(1, 2.0);
-    /// let ve: Vec<f64> = a.to_vec();
+    /// let ve: Vec<i32> = a.to_vec();
     /// println!("{:?}", ve);
     /// ```
-    pub fn to_vec(self: Coord) -> Vec<f64> {
+    pub fn to_vec(self: Coord) -> Vec<i32> {
         vec![self.x, self.y]
     }
 
@@ -63,10 +63,10 @@ impl Coord {
     /// use coord2d::coords;
     ///
     /// let a: coords::Coord = new_coord!(1, 2.0);
-    /// let tu: (f64, f64) = a.to_tuple();
+    /// let tu: (i32, i32) = a.to_tuple();
     /// println!("{:?}", tu);
     /// ```
-    pub fn to_tuple(self: Coord) -> (f64, f64) {
+    pub fn to_tuple(self: Coord) -> (i32, i32) {
         (self.x, self.y)
     }
 
@@ -79,7 +79,7 @@ impl Coord {
     /// let (x, y) = a.split();
     /// println!("{}, {}", x , y);
     /// ```
-    pub fn split(self: Coord) -> (f64, f64) {
+    pub fn split(self: Coord) -> (i32, i32) {
         self.to_tuple()
     }
 }

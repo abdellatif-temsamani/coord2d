@@ -16,8 +16,8 @@ mod test {
     fn test_coords() {
         let a: coords::Coord = new_coord!(1, 2.0);
         let o: coords::Coord = new_coord!(2.0);
-        let x: i64 = 3;
-        let y: f32 = 3.0;
+        let x: i32 = 3;
+        let y: f64 = 3.0;
         let b: coords::Coord = new_coord!(x, y);
 
         // math
@@ -27,10 +27,10 @@ mod test {
         let f: coords::Coord = o / a;
 
         // to vec
-        let g: Vec<f64> = a.to_vec();
+        let g: Vec<i32> = a.to_vec();
 
         // to tuple
-        let i: (f64, f64) = c.to_tuple();
+        let i: (i32, i32) = c.to_tuple();
 
         // split
         let (r, o) = e.split();
@@ -45,8 +45,8 @@ mod test {
         println!("\nlet d: coord::Coord = a - c; | {:?}", d);
         println!("\nlet e: coord::Coord = a * d; | {:?}", e);
         println!("\nlet f: coord::Coord = a / a; | {:?}", f);
-        println!("\n let g: Vec<f64> = a.to_vec(); {:?}", g);
-        println!("\n let i: (f64, f64) = c.to_tuple(); | {:?}", i);
+        println!("\n let g: Vec<i32> = a.to_vec(); {:?}", g);
+        println!("\n let i: (i32, i32) = c.to_tuple(); | {:?}", i);
         println!("\n let (r, o) = e.split(); r={}, o={}", r, o);
     }
 
@@ -54,7 +54,7 @@ mod test {
     fn test_vector() {
         let a: coords::Coord = new_coord!(2.5, 3.3);
         let o: coords::Coord = new_coord!(2.5);
-        let x: f64 = 3.0;
+        let x: i32 = 3;
         let y: f32 = 3.0;
         let b: coords::Coord = new_coord!(x, y);
 
