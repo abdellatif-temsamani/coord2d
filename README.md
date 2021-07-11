@@ -1,6 +1,6 @@
 # modules coord2d
 [![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
-[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.2.1/coord2d/)
+[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.2.3/coord2d/)
 ![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
 
 
@@ -116,10 +116,11 @@ fn main () {
     ```
 - [X] add easy debug function
 - [X] get mid point from vector
-- [ ] improve lib
-- [ ] add properties
-- [ ] improve magnitude calculation function
+- [x] improve lib
+- [x] add properties
+- [x] improve magnitude calculation function
 
+Any suggestion please open issue or do a pull request
 ## stats
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev&show_icons=true&theme=radical)
