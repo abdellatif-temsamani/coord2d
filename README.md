@@ -12,7 +12,7 @@ rust lib for coordinate in 2d system
 use coord2d::*;
 fn main () {
     let a: coords::Coord = new_coord!(1, 2.0);
-    let x: f64 = 3.0;
+    let x: i32 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
 
@@ -23,13 +23,13 @@ fn main () {
     let f: coords::Coord = a / a;
 
     // to vec
-    let g: Vec<f64> = a.to_vec();
+    let g: Vec<i32> = a.to_vec();
 
     // to tuple
-    let i: (f64, f64) = c.to_tuple();
+    let i: (i32, i32) = c.to_tuple();
     // split
     let (r, o) = e.split();
-    let mag: f64 = t.get_magnitude();
+    let mag: i32 = t.get_magnitude();
     let mid: coords::Coord = m.get_midpoint();
 
     println!("let a: coord::Coord = coord::new(1, 2); | {:?}", a);
@@ -38,8 +38,8 @@ fn main () {
     println!("\nlet d: coord::Coord = a - c; | {:?}", d);
     println!("\nlet e: coord::Coord = a * d; | {:?}", e);
     println!("\nlet f: coord::Coord = a / a; | {:?}", f);
-    println!("\n let g: Vec<f64> = a.to_vec(); {:?}", g);
-    println!("\n let i: (f64, f64) = c.to_tuple(); | {:?}", i);
+    println!("\n let g: Vec<i32> = a.to_vec(); {:?}", g);
+    println!("\n let i: (i32, i32) = c.to_tuple(); | {:?}", i);
     println!("\n let (r, o) = e.split(); r={}, o={}" ,r,o);
     println!("\nlet mag = t.get_magnitude(); | {}", mag);
     println!("\nlet mid: coords::Coord = m.get_midpoint(); | {:?}" , mid);
@@ -52,7 +52,7 @@ use coord2d::*;
 
 fn main () {
     let a: coords::Coord = new_coord!(1, 2.0);
-    let x: f64 = 3.0;
+    let x: i32 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
 
@@ -86,7 +86,7 @@ use coord2d::*;
 
 fn main () {
     let a: coords::Coord = new_coord!(1, 2.0);
-    let x: f64 = 3.0;
+    let x: i32 = 3.0;
     let y: i32 = 3;
     let b: coords::Coord = new_coord!(x, y);
 
@@ -112,7 +112,7 @@ fn main () {
     ```rust
     i8, i16, i32, i64, isize
     u8, u16, u32, u64, usize
-    f32, f64
+    f32, i32
     ```
 - [X] add easy debug function
 - [X] get mid point from vector

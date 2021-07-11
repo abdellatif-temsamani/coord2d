@@ -26,8 +26,8 @@ pub struct Vector {
 macro_rules! new_vector {
     () => {
         $crate::vectors::Vector {
-            start: coords::Coord { x: 0.0, y: 0.0 },
-            end: coords::Coord { x: 0.0, y: 0.0 },
+            start: coords::Coord { x: 0, y: 0 },
+            end: coords::Coord { x: 0, y: 0 },
             magnitude: 0.0,
         }
     };
@@ -42,10 +42,10 @@ macro_rules! new_vector {
 
     ($end:expr) => {
         vectors::Vector {
-            start: coords::Coord { x: 0.0, y: 0.0 },
-            end: coords::Coord { x: 0.0, y: 0.0 },
+            start: coords::Coord { x: 0, y: 0 },
+            end: coords::Coord { x: 0, y: 0 },
             magnitude: vectors::__magnitude__(
-                coords::Coord { x: 0.0, y: 0.0 },
+                coords::Coord { x: 0, y: 0 },
                 $end as coords::Coord,
             ),
         }
@@ -58,7 +58,7 @@ pub fn __magnitude__(start: coords::Coord, end: coords::Coord) -> f64 {
     x = x * x;
     y = y * y;
 
-    let sum = x + y;
+    let sum = (x + y) as f64;
 
     sum.sqrt()
 }
@@ -129,7 +129,8 @@ impl Vector {
         x = x * x;
         y = y * y;
 
-        let sum = x + y;
+        let sum = (x + y) as f64;
+
         sum.sqrt()
     }
 
