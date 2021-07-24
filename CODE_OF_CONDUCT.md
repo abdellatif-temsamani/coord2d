@@ -20,8 +20,8 @@ If you see someone who is making an extra effort to ensure our community is welc
 
 The following behaviors are expected and requested of all community members:
 
- * Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
- * Exercise consideration and respect in your speech and actions.
+ * Participate in anyway you like. In doing so, you contribute to the health and longevity of this community.
+ * feel free to say anything unless it's offensive
  * Attempt collaboration before conflict.
  * Refrain from demeaning, discriminatory, or harassing behavior and speech.
  * Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
@@ -32,7 +32,7 @@ The following behaviors are expected and requested of all community members:
 The following behaviors are considered harassment and are unacceptable within our community:
 
  * Violence, threats of violence or violent language directed against another person.
- * Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
+ * Sexist, racist, ableist or otherwise discriminatory jokes and language.
  * Posting or displaying sexually explicit or violent material.
  * Posting or threatening to post other people's personally identifying information ("doxing").
  * Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
@@ -57,7 +57,7 @@ If a community member engages in unacceptable behavior, the community organizers
 
 ## 7. Reporting Guidelines
 
-If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. contact@abdellatifdev.xyz.
+If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. abdellatif.devlog@gmail.com
 
 
 
@@ -65,7 +65,7 @@ Additionally, community organizers are available to help community members engag
 
 ## 8. Addressing Grievances
 
-If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify  with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies. 
+If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify  with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
 
 
 
@@ -77,13 +77,11 @@ This code of conduct and its related procedures also applies to unacceptable beh
 
 ## 10. Contact info
 
-contact@abdellatifdev.xyz
+abdellatif.devlog@gmail.com
 
 ## 11. License and attribution
 
-The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
-
-Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
+The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/).
 
 _Revision 2.3. Posted 6 March 2017._
 
