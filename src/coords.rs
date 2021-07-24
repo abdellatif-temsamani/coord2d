@@ -35,10 +35,7 @@ macro_rules! new_coord {
         }
     };
     ($y:expr) => {
-        $crate::coords::Coord {
-            x: 0,
-            y: $y as i32,
-        }
+        $crate::coords::Coord { x: 0, y: $y as i32 }
     };
 }
 
@@ -99,10 +96,10 @@ impl ops::Add<Coord> for Coord {
     type Output = Coord;
 
     fn add(self: Coord, rhs: Coord) -> Coord {
-        let x = self.x + rhs.x;
-        let y = self.y + rhs.y;
-
-        Coord { x, y }
+        Coord {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
     }
 }
 /// ### subtraction
@@ -120,10 +117,10 @@ impl ops::Sub<Coord> for Coord {
     type Output = Coord;
 
     fn sub(self: Coord, rhs: Coord) -> Coord {
-        let x = self.x - rhs.x;
-        let y = self.y - rhs.y;
-
-        Coord { x, y }
+        Coord {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+        }
     }
 }
 
@@ -141,10 +138,10 @@ impl ops::Mul<Coord> for Coord {
     type Output = Coord;
 
     fn mul(self: Coord, rhs: Coord) -> Coord {
-        let x = self.x * rhs.x;
-        let y = self.y * rhs.y;
-
-        Coord { x, y }
+        Coord {
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
+        }
     }
 }
 
@@ -162,9 +159,9 @@ impl ops::Div<Coord> for Coord {
     type Output = Coord;
 
     fn div(self: Coord, rhs: Coord) -> Coord {
-        let x = self.x / rhs.x;
-        let y = self.y / rhs.y;
-
-        Coord { x, y }
+        Coord {
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
+        }
     }
 }

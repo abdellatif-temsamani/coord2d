@@ -43,22 +43,17 @@ macro_rules! new_vector {
     ($end:expr) => {
         vectors::Vector {
             start: coords::Coord { x: 0, y: 0 },
-            end: coords::Coord { x: 0, y: 0 },
-            magnitude: vectors::__magnitude__(
-                coords::Coord { x: 0, y: 0 },
-                $end as coords::Coord,
-            ),
+            end: $end,
+            magnitude: vectors::__magnitude__(coords::Coord { x: 0, y: 0 }, $end as coords::Coord),
         }
     };
 }
 /// # magnitude
 /// called when creating to a new vector
 pub fn __magnitude__(start: coords::Coord, end: coords::Coord) -> f64 {
-    let (mut x, mut y) = coords::Coord::to_tuple(end - start);
-    x = x * x;
-    y = y * y;
+    let (x, y) = coords::Coord::to_tuple(end - start);
 
-    let sum = (x + y) as f64;
+    let sum = (x.pow(2) + y.pow(2)) as f64;
 
     sum.sqrt()
 }
@@ -125,11 +120,9 @@ impl Vector {
     /// ```
     pub fn get_magnitude(self: Vector) -> f64 {
         let mag_coord = self.end - self.start;
-        let (mut x, mut y) = mag_coord.to_tuple();
-        x = x * x;
-        y = y * y;
+        let (x, y) = mag_coord.to_tuple();
 
-        let sum = (x + y) as f64;
+        let sum = (x.pow(2) + y.pow(2)) as f64;
 
         sum.sqrt()
     }
@@ -146,10 +139,10 @@ impl Vector {
     /// debug::debug(mid);
     /// }
     pub fn get_midpoint(self: Vector) -> coords::Coord {
-        let mid_x = self.start.x + self.end.x;
-        let mid_y = self.start.y + self.end.y;
-
-        coords::Coord { x: mid_x, y: mid_y }
+        coords::Coord {
+            x: self.start.x + self.end.x,
+            y: self.start.y + self.end.y,
+        }
     }
 }
 
@@ -172,12 +165,11 @@ impl ops::Add<Vector> for Vector {
     fn add(self: Vector, rhs: Vector) -> Vector {
         let start = self.start + rhs.start;
         let end = self.end + rhs.end;
-        let magnitude = __magnitude__(start, end);
 
         Vector {
             start,
             end,
-            magnitude,
+            magnitude: __magnitude__(start, end),
         }
     }
 }
@@ -200,12 +192,11 @@ impl ops::Sub<Vector> for Vector {
     fn sub(self: Vector, rhs: Vector) -> Vector {
         let start = self.start - rhs.start;
         let end = self.end - rhs.end;
-        let magnitude = __magnitude__(start, end);
 
         Vector {
             start,
             end,
-            magnitude,
+            magnitude: __magnitude__(start, end),
         }
     }
 }
@@ -228,12 +219,11 @@ impl ops::Mul<Vector> for Vector {
     fn mul(self: Vector, rhs: Vector) -> Vector {
         let start = self.start * rhs.start;
         let end = self.end * rhs.end;
-        let magnitude = __magnitude__(start, end);
 
         Vector {
             start,
             end,
-            magnitude,
+            magnitude: __magnitude__(start, end),
         }
     }
 }
@@ -256,12 +246,11 @@ impl ops::Div<Vector> for Vector {
     fn div(self: Vector, rhs: Vector) -> Vector {
         let start = self.start / rhs.start;
         let end = self.end / rhs.end;
-        let magnitude = __magnitude__(start, end);
 
         Vector {
             start,
             end,
-            magnitude,
+            magnitude: __magnitude__(start, end),
         }
     }
 }
