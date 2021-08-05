@@ -33,7 +33,7 @@ mod test {
         let i: (i32, i32) = c.to_tuple();
 
         // split
-        let (r, o) = e.split();
+        let (r, o) = e.to_tuple();
 
         println!("let a: coord::Coord = new_coord!(1, 2.0); | {:?}", a);
         println!("let o: coord::Coord = new_coord!(2.0); | {:?}", o);
@@ -47,7 +47,7 @@ mod test {
         println!("\nlet f: coord::Coord = a / a; | {:?}", f);
         println!("\n let g: Vec<i32> = a.to_vec(); {:?}", g);
         println!("\n let i: (i32, i32) = c.to_tuple(); | {:?}", i);
-        println!("\n let (r, o) = e.split(); r={}, o={}", r, o);
+        println!("\n let (r, o) = e.to_tuple(); r={}, o={}", r, o);
     }
 
     #[test]

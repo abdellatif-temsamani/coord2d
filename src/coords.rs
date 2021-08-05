@@ -11,7 +11,7 @@ pub struct Coord {
 /// ## creating a new Coord
 /// #### Example
 /// ```rust
-/// use coord2d::coords;
+/// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
 /// println!("{:?}", a);
@@ -21,21 +21,22 @@ pub struct Coord {
 /// // returns Coord {x: 0.0, y: 2.0}
 /// ```
 /// * the var **a** contains to var x and y as position in a graph (O, I, J)
-/// * it convert i32 ,i64, u32 ,u64 , usize ,isize and f32 to i32
 /// * returns i32
 #[macro_export]
 macro_rules! new_coord {
     () => {
         $crate::coords::Coord { x: 0, y: 0 }
     };
+
+    ($y:expr) => {
+        $crate::coords::Coord { x: 0, y: $y as i32 }
+    };
+
     ($x:expr, $y:expr) => {
         $crate::coords::Coord {
             x: $x as i32,
             y: $y as i32,
         }
-    };
-    ($y:expr) => {
-        $crate::coords::Coord { x: 0, y: $y as i32 }
     };
 }
 
@@ -44,7 +45,7 @@ impl Coord {
     /// ### converting to a Vec
     /// #### Example
     /// ```rust
-    /// use coord2d::coords;
+    /// use coord2d::*;
     ///
     /// let a: coords::Coord = new_coord!(1, 2.0);
     /// let ve: Vec<i32> = a.to_vec();
@@ -57,35 +58,26 @@ impl Coord {
     /// ### converting to a tuple
     /// #### Example
     /// ```rust
-    /// use coord2d::coords;
+    /// use coord2d::*;
     ///
     /// let a: coords::Coord = new_coord!(1, 2.0);
     /// let tu: (i32, i32) = a.to_tuple();
+    /// let (x, y) = a.to_tuple();
+    /// println!("{}, {}", x , y);
     /// println!("{:?}", tu);
     /// ```
     pub fn to_tuple(self: Coord) -> (i32, i32) {
         (self.x, self.y)
     }
-
-    /// ### spliting Coord
-    /// #### Example
-    /// ```rust
-    /// use coord2d::coords;
-    ///
-    /// let a: coords::Coord = new_coord!(1, 2.0);
-    /// let (x, y) = a.split();
-    /// println!("{}, {}", x , y);
-    /// ```
-    pub fn split(self: Coord) -> (i32, i32) {
-        self.to_tuple()
-    }
 }
 
-/// ## math
+/// ## operations
+
 /// ### addition
+
 /// ##### Example
 /// ```rust
-/// use coord2d::coords;
+/// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
 /// let b: coords::Coord = new_coord!(0.4, 3.3);
@@ -102,17 +94,17 @@ impl ops::Add<Coord> for Coord {
         }
     }
 }
+
 /// ### subtraction
 /// ##### Example
 /// ```rust
-/// use coord2d::coords;
+/// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
 /// let b: coords::Coord = new_coord!(0.4, 3.3);
-/// let sub:coords::Coord = a - b;
+/// let sub: coords::Coord = a - b;
 /// println!("{:?}", sub);
 /// ```
-
 impl ops::Sub<Coord> for Coord {
     type Output = Coord;
 
@@ -127,7 +119,7 @@ impl ops::Sub<Coord> for Coord {
 /// ### multiplication
 /// ##### Example
 /// ```rust
-/// use coord2d::coords;
+/// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
 /// let b: coords::Coord = new_coord!(0.4, 3.3);
@@ -147,13 +139,13 @@ impl ops::Mul<Coord> for Coord {
 
 /// ### division
 /// ##### Example
-/// ```rust
-/// use coord2d::coords;
+///
+/// ``` rust
+/// use coord2d::*;
 ///
 /// let a: coords::Coord = new_coord!(1, 2.0);
-/// let b: coords::Coord = new_coord!(0.4, 3.3);
-/// let div:coords::Coord = a / b;
-/// println!("{:?}", div);
+/// let b: coords::Coord = new_coord!(1.4, 3.3);
+/// let div: coords::Coord = a / b;
 /// ```
 impl ops::Div<Coord> for Coord {
     type Output = Coord;
