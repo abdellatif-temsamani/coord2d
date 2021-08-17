@@ -16,8 +16,8 @@ use std::{any::type_name, fmt::Debug};
 /// debug::debug(h);
 /// ```
 /// - easy to print vector or coord object
-pub fn debug<T: Debug>(db: T) {
-    println!("{:?}", db);
+pub fn debug<T: Debug>(item: T) {
+    println!("{:?}", item);
 }
 
 /// # get type of var
