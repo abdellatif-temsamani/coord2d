@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 use crate::coords;
 use std::ops;
+
 /// # Vector
 /// it only Coord struct as input
 #[derive(Clone, Copy, Debug)]
@@ -51,9 +52,7 @@ macro_rules! new_vector {
 /// # magnitude
 /// called when creating to a new vector
 pub fn get_magnitude(start: coords::Coord, end: coords::Coord) -> f64 {
-    let mag_coord = end - start;
-
-    ((mag_coord.x.pow(2) + mag_coord.y.pow(2)) as f64).sqrt()
+    (((end.x - start.x).pow(2) + (end.y - start.y).pow(2)) as f64).sqrt()
 }
 
 /// ## implementations
@@ -100,9 +99,7 @@ impl Vector {
     /// println!("{}", mag);
     /// ```
     pub fn get_magnitude(self: Vector) -> f64 {
-        let mag_coord = self.end - self.start;
-
-        ((mag_coord.x.pow(2) + mag_coord.y.pow(2)) as f64).sqrt()
+    (((self.end.x - self.start.x).pow(2) + (self.end.y - self.start.y).pow(2)) as f64).sqrt()
     }
 
     /// # geting mid point
