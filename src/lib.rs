@@ -1,12 +1,12 @@
 #[allow(dead_code)]
-#[macro_use]
 pub mod coords;
 
-#[macro_use]
 pub mod vectors;
 
-#[macro_use]
 pub mod debug;
+
+#[macro_use]
+pub mod new;
 
 #[cfg(test)]
 mod test {
