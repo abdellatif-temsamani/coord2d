@@ -11,43 +11,6 @@ pub struct Vector {
     pub magnitude: f64,
 }
 
-/// ## creating a new Vector
-/// #### Example
-/// ```rust
-/// use coord2d::*;
-///
-/// let a: coords::Coord = new_coord!(1, 2.0);
-/// let b: coords::Coord = new_coord!(0.4, 3.3);
-/// let h:vectors::Vector = new_vector!(a, b);
-/// ```
-/// * the var **h** contains to var start point and end point point
-/// * while magnitude get calculated automatically
-#[macro_export]
-macro_rules! new_vector {
-    () => {
-        $crate::vectors::Vector {
-            start: coords::Coord { x: 0, y: 0 },
-            end: coords::Coord { x: 0, y: 0 },
-            magnitude: 0.0,
-        }
-    };
-
-    ($end:expr) => {
-        vectors::Vector {
-            start: coords::Coord { x: 0, y: 0 },
-            end: $end,
-            magnitude: vectors::get_magnitude(coords::Coord { x: 0, y: 0 }, $end as coords::Coord),
-        }
-    };
-
-    ($start:expr, $end:expr) => {
-        vectors::Vector {
-            start: $start,
-            end: $end,
-            magnitude: vectors::get_magnitude($start as coords::Coord, $end as coords::Coord),
-        }
-    };
-}
 
 /// # magnitude
 /// called when creating to a new vector
@@ -57,6 +20,7 @@ pub fn get_magnitude(start: coords::Coord, end: coords::Coord) -> f64 {
 
 /// ## implementations
 impl Vector {
+
     /// ### converting to a Vec
     /// ##### Example
     /// ```rust
@@ -99,7 +63,7 @@ impl Vector {
     /// println!("{}", mag);
     /// ```
     pub fn get_magnitude(self: Vector) -> f64 {
-    (((self.end.x - self.start.x).pow(2) + (self.end.y - self.start.y).pow(2)) as f64).sqrt()
+        (((self.end.x - self.start.x).pow(2) + (self.end.y - self.start.y).pow(2)) as f64).sqrt()
     }
 
     /// # geting mid point
