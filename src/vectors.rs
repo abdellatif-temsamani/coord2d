@@ -57,6 +57,7 @@ pub fn get_magnitude(start: coords::Coord, end: coords::Coord) -> f64 {
 
 /// ## implementations
 impl Vector {
+
     /// ### converting to a Vec
     /// ##### Example
     /// ```rust
@@ -99,7 +100,7 @@ impl Vector {
     /// println!("{}", mag);
     /// ```
     pub fn get_magnitude(self: Vector) -> f64 {
-    (((self.end.x - self.start.x).pow(2) + (self.end.y - self.start.y).pow(2)) as f64).sqrt()
+        (((self.end.x - self.start.x).pow(2) + (self.end.y - self.start.y).pow(2)) as f64).sqrt()
     }
 
     /// # geting mid point

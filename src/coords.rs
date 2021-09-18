@@ -69,7 +69,6 @@ impl Coord {
     pub fn to_tuple(self: Coord) -> (i32, i32) {
         (self.x, self.y)
     }
-
 }
 
 /// ## operations
