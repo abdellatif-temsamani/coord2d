@@ -137,8 +137,8 @@ fn main () {
 Any suggestion please open issue or do a pull request
 ## stats
 
-![abdellatif-dev's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev&show_icons=true&theme=radical)
+![abdellatif-dev's GitHub stats](https://github-readme-stats.vercel.app/api?username=abdellatif-dev)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=abdellatif-dev&layout=compact&show_icons=true&theme=radical)](https://github.com/abdellatif-dev/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=abdellatif-dev&layout=compact&show_icons=true)](https://github.com/abdellatif-dev/github-readme-stats)
 
 you contact us over contact@abdellatifdev.xyz
