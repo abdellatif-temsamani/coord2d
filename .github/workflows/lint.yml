@@ -32,5 +32,5 @@ jobs:
         number: ${{ steps.cpr.outputs.pull-request-number }}
 
     - name: delete branch
-      run: git branch -D $GITHUB_HEAD_REF
+      run: git branch -D create-pull-request/patch
 
