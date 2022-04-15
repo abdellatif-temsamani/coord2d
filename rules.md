@@ -24,7 +24,7 @@ The following behaviors are considered harassment and are unacceptable within th
  * Sexist, racist or otherwise discriminatory jokes and language.
  * Posting or displaying sexually explicit or violent material.
  * doxing
- * Personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
+ * Personal insults, particularly those related to gender, sexual orientation, race, religion or disability.
  * Inappropriate photography or recording.
  * Inappropriate physical contact. You should have someone's consent before touching them.
  * Unwelcome sexual attention. This includes, sexualized comments or jokes; inappropriate touching, groping, and unwelcomed sexual advances.
