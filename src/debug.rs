@@ -17,7 +17,7 @@ use std::{any::type_name, fmt::Debug};
 /// ```
 /// - easy to print vector or coord object
 pub fn debug<T: Debug>(item: T) {
-  println!("{:?}", item);
+    println!("{:?}", item);
 }
 
 /// # get type of var
@@ -40,5 +40,5 @@ pub fn debug<T: Debug>(item: T) {
 /// ```
 /// - easy to print vector or coord object
 pub fn type_of<T>(_t: T) -> &'static str {
-type_name::<T>()
+    type_name::<T>()
 }
