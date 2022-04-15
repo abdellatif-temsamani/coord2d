@@ -1,0 +1,28 @@
+name: Rust
+
+on:
+  push:
+    branches: [ master ]
+
+  pull_request:
+    branches: [ master ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Lint
+      run: cargo clippy --verbose
+
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: format
+      run: cargo fmt --verbose
+      uses: peter-evans/create-pull-request@v4
