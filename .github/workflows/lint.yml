@@ -21,8 +21,16 @@ jobs:
       run: cargo fmt --verbose
     - name: create a PR
       uses: peter-evans/create-pull-request@v4
-    - name: merge
-      uses: peter-evans/merge-pr@v1
+      with:
+        title: "[AUTO] Formatting"
+
+    - name: Auto approve
+      if: steps.cpr.outputs.pull_request_title.value.startsWith('[AUTO]')
+      uses: juliangruber/approve-pull-request-action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: ${{ steps.cpr.outputs.pull-request-number }}
+
     - name: delete branch
       run: git branch -D $GITHUB_HEAD_REF
 
