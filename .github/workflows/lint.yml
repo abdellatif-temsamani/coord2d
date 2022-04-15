@@ -25,7 +25,6 @@ jobs:
         title: "[AUTO] Formatting"
 
     - name: Auto approve
-      if: steps.cpr.outputs.pull_request_title.value == "[AUTO] Formatting"
       uses: juliangruber/approve-pull-request-action@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
