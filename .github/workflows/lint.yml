@@ -30,7 +30,3 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.cpr.outputs.pull-request-number }}
-
-    - name: delete branch
-      run: git branch -D create-pull-request/patch
-
