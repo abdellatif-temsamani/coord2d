@@ -11,7 +11,6 @@ pub struct Vector {
     pub magnitude: f64,
 }
 
-
 /// # magnitude
 /// called when creating to a new vector
 pub fn get_magnitude(start: coords::Coord, end: coords::Coord) -> f64 {
@@ -20,7 +19,6 @@ pub fn get_magnitude(start: coords::Coord, end: coords::Coord) -> f64 {
 
 /// ## implementations
 impl Vector {
-
     /// ### converting to a Vec
     /// ##### Example
     /// ```rust
