@@ -29,3 +29,11 @@ jobs:
 
     - name: Run tests
       run: cargo test --all --verbose
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint
+      run: cargo clippy --verbose
