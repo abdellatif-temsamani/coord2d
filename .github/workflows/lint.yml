@@ -21,5 +21,3 @@ jobs:
       run: cargo fmt --verbose
     - name: create a PR
       uses: peter-evans/create-pull-request@v4
-      with:
-        title: "[AUTO] Formatting"
