@@ -21,3 +21,8 @@ jobs:
       run: cargo fmt --verbose
     - name: create a PR
       uses: peter-evans/create-pull-request@v4
+    - name: merge
+      uses: peter-evans/merge-pr@v1
+    - name: delete branch
+      run: git branch -D $GITHUB_HEAD_REF
+
