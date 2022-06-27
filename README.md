@@ -1,6 +1,6 @@
 # modules coord2d
 [![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
-[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.2.7/coord2d/)
+[![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.2.9/coord2d/)
 ![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
 
 
