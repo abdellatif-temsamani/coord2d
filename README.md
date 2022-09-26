@@ -1,8 +1,18 @@
+# NOTICE
+
+The library deprecated for now,
+until i find a time to write with the following features:
+
+- generics
+- traits
+- better error handling
+- following rust standards
+
 # modules coord2d
+
 [![Crate Status](https://img.shields.io/crates/v/coord2d?style=for-the-badge)](https://crates.io/crates/coord2d)
 [![docs.rs](https://img.shields.io/docsrs/coord2d?style=for-the-badge)](https://docs.rs/coord2d/0.2.7/coord2d/)
 ![Crates.io](https://img.shields.io/crates/l/coord2d?style=for-the-badge)
-
 
 rust lib for coordinate in 2d system
 
@@ -47,6 +57,7 @@ fn main () {
    println!("\n let (r, o) = e.to_tuple(); r={}, o={}", r, o);
 }
 ```
+
 ## example Vectors
 
 ```rust
@@ -117,16 +128,16 @@ fn main () {
 
 # TO DO
 
-- [X] basic math
-- [X] add fn give magnitude of vector
-- [X] fix coord to accept other integers and floats types such as:
-    ```rust
-    i8, i16, i32, i64, isize
-    u8, u16, u32, u64, usize
-    f32, i32
-    ```
-- [X] add easy debug function
-- [X] get mid point from vector
+- [x] basic math
+- [x] add fn give magnitude of vector
+- [x] fix coord to accept other integers and floats types such as:
+  ```rust
+  i8, i16, i32, i64, isize
+  u8, u16, u32, u64, usize
+  f32, i32
+  ```
+- [x] add easy debug function
+- [x] get mid point from vector
 - [x] improve lib
 - [x] add properties
 - [x] improve magnitude calculation function
