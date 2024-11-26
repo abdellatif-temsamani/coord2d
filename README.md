@@ -68,8 +68,8 @@ fn main() {
 
 ## **Planned Features**
 
+- [x] **Code Cleanup:** Refactor and clean up the codebase.
 - [ ] **2D Shapes:** Add support for shape creation and manipulation.
-- [ ] **Code Cleanup:** Refactor and clean up the codebase.
 
 ## **Contributing**
 
