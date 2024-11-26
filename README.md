@@ -43,8 +43,8 @@ coord2d = "*"
 use coord2d::*;
 
 fn main() {
-    let a: coords::Coord = new_coord!(1, 2.0);
-    let b: coords::Coord = new_coord!(3, 4.5);
+    let a: coord::Coord = new_coord!(1, 2.0);
+    let b: coord::Coord = new_coord!(3, 4.5);
 }
 ```
 
@@ -54,10 +54,10 @@ fn main() {
 use coord2d::*;
 
 fn main() {
-    let a: coords::Coord = new_coord!(2.5, 3.3);
-    let b: coords::Coord = new_coord!(1.0, 1.5);
+    let a: coord::Coord = new_coord!(2.5, 3.3);
+    let b: coord::Coord = new_coord!(1.0, 1.5);
 
-    let vector: vectors::Vector = new_vector!(a, b);
+    let vector: vector::Vector = new_vector!(a, b);
 
     let magnitude = vector.get_magnitude(); // Calculate magnitude
     let midpoint = vector.get_midpoint(); // Get midpoint
@@ -73,8 +73,8 @@ fn main() {
 use coord2d::*;
 
 fn main() {
-    let coord: coords::Coord = new_coord!(1, 2.0);
-    let vector: vectors::Vector = new_vector!(coord);
+    let coord: coord::Coord = new_coord!(1, 2.0);
+    let vector: vector::Vector = new_vector!(coord);
 
     debug::debug(coord); // Debug a coordinate
     debug::debug(vector); // Debug a vector
