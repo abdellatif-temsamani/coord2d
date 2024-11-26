@@ -22,7 +22,6 @@ ideal for 2D geometry computations.
   as `i32`, `f32`, `usize`, and more.
 - **Vector Utilities:** Calculate magnitude, midpoint, and more.
 - **Conversions:** Convert coordinates to vectors, tuples, or `Vec` formats.
-- **Debugging Tools:** Simplified debugging utilities.
 - **Extensible:** Designed with modularity to support future enhancements like
   shapes.
 
@@ -64,20 +63,6 @@ fn main() {
 
     println!("Magnitude: {}", magnitude);
     println!("Midpoint: {:?}", midpoint);
-}
-```
-
-### **Debugging**
-
-```rust
-use coord2d::*;
-
-fn main() {
-    let coord: coord::Coord = new_coord!(1, 2.0);
-    let vector: vector::Vector = new_vector!(coord);
-
-    debug::debug(coord); // Debug a coordinate
-    debug::debug(vector); // Debug a vector
 }
 ```
 
